@@ -232,6 +232,16 @@ async function main() {
   if (!MOCK && !process.env.GOVEE_API_KEY) throw new Error('GOVEE_API_KEY is not set');
   if (!DRY_RUN && process.env.SLACK_PENDING !== '1' && !process.env.SLACK_BOT_TOKEN) throw new Error('SLACK_BOT_TOKEN is not set (use DRY_RUN=1 to test without Slack)');
 
+  if (process.env.TEST_SLACK === '1') {
+    const ok = await slack(CONFIG.slack.escalationChannel,
+      `*TEST - DP Temperature Monitor*\nThis is what shops will receive when they are outside ${range}:\n\n` +
+      msg.first({ shop: 'Example Shop - Customer area' }, { status: 'cold', tempC: 16.9 }) + '\n\n' +
+      msg.recovered({ shop: 'Example Shop - Customer area' }, { tempC: 19.0 }, 'cold'));
+    if (!ok) throw new Error('Slack test message failed - check the token and app install');
+    console.log('Test message sent');
+    return;
+  }
+
   if (process.env.LIST_DEVICES === '1') {
     const devs = MOCK ? mockDevices() : await listThermometers();
     console.log(`Found ${devs.length} thermometers. Copy the names into config.json -> shops[].goveeName\n`);

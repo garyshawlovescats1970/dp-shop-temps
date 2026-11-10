@@ -8,7 +8,7 @@ on:
       mode:
         description: 'What to run'
         type: choice
-        options: [monitor, list-devices, dry-run]
+        options: [monitor, list-devices, dry-run, test-slack]
         default: monitor
 
 permissions:
@@ -42,6 +42,10 @@ jobs:
           fi
           if [ "$MODE" = "list-devices" ]; then
             LIST_DEVICES=1 DRY_RUN=1 node src/monitor.js
+            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$MODE" = "test-slack" ]; then
+            TEST_SLACK=1 node src/monitor.js
             echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
           fi
           if [ "$MODE" = "dry-run" ]; then
