@@ -1,8 +1,14 @@
 name: Shop temperature monitor
 
+# How it keeps running: each "monitor" run checks every 15 minutes for about 5.5 hours,
+# then starts the next run itself (GitHub allows a workflow to re-dispatch itself).
+# The cron schedule below is only a backup in case the chain ever stops.
+# To restart by hand: Actions > Shop temperature monitor > Run workflow > monitor.
+# To stop it: cancel the running run (it will not restart itself), or Disable workflow.
+
 on:
   schedule:
-    - cron: '*/15 * * * *'   # every 15 minutes (UTC; opening hours are handled in config.json)
+    - cron: '7 */6 * * *'   # backup: restarts the chain if it has stopped
   workflow_dispatch:
     inputs:
       mode:
@@ -13,15 +19,22 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
-  group: temp-monitor
+  # only one monitoring chain at a time; test modes run separately
+  group: temp-monitor-${{ inputs.mode || 'monitor' }}
   cancel-in-progress: false
 
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 350
+    env:
+      GOVEE_API_KEY: ${{ secrets.GOVEE_API_KEY }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      MODE: ${{ inputs.mode || 'monitor' }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
 
@@ -29,42 +42,38 @@ jobs:
         with:
           node-version: 20
 
-      - name: Check temperatures
-        id: run
-        env:
-          GOVEE_API_KEY: ${{ secrets.GOVEE_API_KEY }}
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          MODE: ${{ inputs.mode || 'monitor' }}
+      - name: One-off modes
+        if: env.MODE != 'monitor'
         run: |
-          if [ -z "$GOVEE_API_KEY" ]; then
-            echo "::notice::GOVEE_API_KEY secret not added yet - nothing to do."
-            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          if [ "$MODE" = "list-devices" ]; then
-            LIST_DEVICES=1 DRY_RUN=1 node src/monitor.js
-            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          if [ "$MODE" = "test-slack" ]; then
-            TEST_SLACK=1 node src/monitor.js
-            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          if [ "$MODE" = "dry-run" ]; then
-            DRY_RUN=1 node src/monitor.js
-            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
-          fi
-          if [ -z "$SLACK_BOT_TOKEN" ]; then
-            echo "::warning::SLACK_BOT_TOKEN not added yet - readings and dashboard update, but no Slack messages are sent."
-            export SLACK_PENDING=1
-          fi
-          node src/monitor.js
-          echo "save=yes" >> "$GITHUB_OUTPUT"
+          [ -z "$GOVEE_API_KEY" ] && { echo "GOVEE_API_KEY not set"; exit 0; }
+          case "$MODE" in
+            list-devices) LIST_DEVICES=1 DRY_RUN=1 node src/monitor.js ;;
+            dry-run)      DRY_RUN=1 node src/monitor.js ;;
+            test-slack)   TEST_SLACK=1 node src/monitor.js ;;
+          esac
 
-      - name: Save state, dashboard and overnight report
-        if: steps.run.outputs.save == 'yes'
+      - name: Monitor every 15 minutes (about 5.5 hours)
+        if: env.MODE == 'monitor'
         run: |
+          if [ -z "$GOVEE_API_KEY" ]; then echo "::notice::GOVEE_API_KEY not added yet"; exit 0; fi
+          [ -z "$SLACK_BOT_TOKEN" ] && export SLACK_PENDING=1
           git config user.name "temp-monitor"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs
-          git diff --cached --quiet || git commit -m "Update temperatures [skip ci]"
-          git pull --rebase -X theirs || true
-          git push
+          for i in $(seq 1 22); do
+            start=$(date +%s)
+            # pick up any code/config changes and the latest saved state
+            git pull -q --rebase -X theirs || git rebase --abort || true
+            node src/monitor.js || echo "::warning::check $i failed - will try again in 15 minutes"
+            git add data docs
+            git diff --cached --quiet || git commit -q -m "Update temperatures [skip ci]"
+            git pull -q --rebase -X theirs || git rebase --abort || true
+            git push -q || echo "::warning::push failed - will retry next check"
+            if [ "$i" -lt 22 ]; then
+              wait=$(( 900 - ($(date +%s) - start) ))
+              if [ "$wait" -gt 0 ]; then sleep "$wait"; fi
+            fi
+          done
+
+      - name: Start the next run
+        if: (success() || failure()) && env.MODE == 'monitor'
+        run: gh workflow run monitor.yml --ref main -f mode=monitor -R "$GITHUB_REPOSITORY"

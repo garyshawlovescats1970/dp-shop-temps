@@ -1,6 +1,6 @@
 # DP Shop Temperature Monitor
 
-Checks every Govee thermometer on the account every 15 minutes. If a shop is outside 18-23°C during opening hours, it messages that shop's Slack channel to put the heating or cooling on for an hour, follows up, tells them to switch it off when back in range, and escalates to the area supervisor channel if it hasn't recovered after 2 hours. A live dashboard is rebuilt on every run.
+Checks every Govee thermometer on the account every 15 minutes. Each GitHub run checks every 15 minutes for about 5.5 hours, then starts the next run itself, so no outside timer is needed; a 6-hourly schedule restarts it if the chain ever stops. To restart by hand: Actions > Shop temperature monitor > Run workflow > monitor. To stop it: cancel the running run. If a shop is outside 18-23°C during opening hours, it messages that shop's Slack channel to put the heating or cooling on for an hour, follows up, tells them to switch it off when back in range, and escalates to the area supervisor channel if it hasn't recovered after 2 hours. A live dashboard is rebuilt on every run.
 
 ## What the shop sees
 
