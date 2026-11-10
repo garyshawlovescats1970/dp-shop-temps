@@ -222,9 +222,9 @@ const msg = {
   recovered: (s, t, prevStatus) =>
     `*BACK IN RANGE - ${s.shop}*\nNow *${t.tempC.toFixed(1)}°C*. *Switch the ${action(prevStatus)} OFF.*`,
   escalate: (s, t, mins) =>
-    `*ESCALATION - ${s.shop} (${s.area})*\nStill too ${word(t.status)} after ${fmtDuration(mins)} of alerts: *${t.tempC.toFixed(1)}°C* (range ${range}). First alert at ${fmtTime(t.firstAlertAt)}. Possible ${t.status === 'cold' ? 'heating' : 'cooling'} fault - please contact the shop.`,
+    `*ESCALATION - ${s.shop}*\nStill too ${word(t.status)} after ${fmtDuration(mins)} of alerts: *${t.tempC.toFixed(1)}°C* (range ${range}). First alert at ${fmtTime(t.firstAlertAt)}. Possible ${t.status === 'cold' ? 'heating' : 'cooling'} fault - please contact the shop.`,
   offline: (s, t) =>
-    `*SENSOR OFFLINE - ${s.shop} (${s.area})*\nNo reading since ${t.lastReadingAt ? fmtTime(t.lastReadingAt) : 'first check'}. Check the sensor batteries and the Govee Wi-Fi gateway.`,
+    `*SENSOR OFFLINE - ${s.shop}*\nNo reading since ${t.lastReadingAt ? fmtTime(t.lastReadingAt) : 'first check'}. Check the sensor batteries and the Govee Wi-Fi gateway.`,
 };
 
 // ---------- main ----------
@@ -233,12 +233,28 @@ async function main() {
   if (!DRY_RUN && process.env.SLACK_PENDING !== '1' && !process.env.SLACK_BOT_TOKEN) throw new Error('SLACK_BOT_TOKEN is not set (use DRY_RUN=1 to test without Slack)');
 
   if (process.env.TEST_SLACK === '1') {
-    const ok = await slack(CONFIG.slack.escalationChannel,
-      `*TEST - DP Temperature Monitor*\nThis is what shops will receive when they are outside ${range}:\n\n` +
-      msg.first({ shop: 'Example Shop - Customer area' }, { status: 'cold', tempC: 16.9 }) + '\n\n' +
-      msg.recovered({ shop: 'Example Shop - Customer area' }, { tempC: 19.0 }, 'cold'));
-    if (!ok) throw new Error('Slack test message failed - check the token and app install');
-    console.log('Test message sent');
+    // Replays the latest saved readings as one message to the supervisor only. Nothing goes to shops.
+    const saved = JSON.parse(await fs.readFile(STATE_FILE, 'utf8'));
+    const devs = Object.values(saved.devices).filter((t) => t.mapped !== false);
+    const out = devs.filter((t) => t.status === 'cold' || t.status === 'hot').sort((a, b) => a.shop.localeCompare(b.shop));
+    const off = devs.filter((t) => t.status === 'offline').sort((a, b) => a.shop.localeCompare(b.shop));
+    const recipient = (t) => CONFIG.shops.find((x) => t.shop.startsWith(x.shop + ' - '))?.shop || t.shop;
+    const blocks = [
+      `*TEST ONLY - nothing has been sent to shops*\nThis is what would have gone out from the check at ${fmtTime(saved.updatedAt)} today: ` +
+      `${out.length} shop alert${out.length === 1 ? '' : 's'} and ${off.length} offline sensor alert${off.length === 1 ? '' : 's'} to you.`,
+      ...out.map((t) => `--------------------\n_To ${recipient(t)} (Slack DM):_\n` + msg.first({ shop: t.shop }, t)),
+      ...off.map((t) => `--------------------\n_To you:_\n` + msg.offline({ shop: t.shop, area: 'Shops' }, t)),
+    ];
+    // Slack shows long messages truncated, so send in chunks
+    const chunks = [];
+    for (const b of blocks) {
+      if (chunks.length && (chunks.at(-1) + '\n\n' + b).length < 3500) chunks[chunks.length - 1] += '\n\n' + b;
+      else chunks.push(b);
+    }
+    for (const c of chunks) {
+      if (!(await slack(CONFIG.slack.escalationChannel, c))) throw new Error('Slack test message failed - check the token and app install');
+    }
+    console.log(`Test sent to supervisor: ${out.length} shop alerts, ${off.length} offline, ${chunks.length} Slack message(s)`);
     return;
   }
 
