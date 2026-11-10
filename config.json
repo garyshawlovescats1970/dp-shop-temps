@@ -20,9 +20,15 @@
     "sun": "09:30-20:00"
   },
   "slack": {
-    "defaultShopChannel": "U065UKGTN81",
-    "escalationChannel": "U065UKGTN81",
-    "_note": "Shop alerts go as a direct message to each shop's Slack login. Escalations and offline sensors go to Will (U065UKGTN81). Sensors not linked to a shop (e.g. Abbots Quay First Floor, Wifi Thermometer) show on the dashboard only."
+    "defaultShopChannel": null,
+    "escalationChannel": [
+      "U065UKGTN81",
+      "U0659BFDAJ2",
+      "U0BDQHLSNTA",
+      "U09U59RQJ8M",
+      "U0659BFB9V4"
+    ],
+    "_managers": "Escalations and offline-sensor alerts go to: Will Brown U065UKGTN81, Kelsey Rogers U0659BFDAJ2, Jacob Pitt U0BDQHLSNTA, Stuart Chell U09U59RQJ8M, Mike Wilson (@mikew) U0659BFB9V4. Shop alerts go to each shop's own Slack login."
   },
   "shops": [
     {

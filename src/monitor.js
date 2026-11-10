@@ -194,6 +194,12 @@ function mockRead(d, prev) {
 // ---------- Slack ----------
 async function slack(channel, text) {
   if (!channel) return true; // sensor not linked to a shop: dashboard only
+  // several recipients (e.g. the managers list): send to each, succeed if any got it
+  if (Array.isArray(channel)) {
+    let ok = false;
+    for (const c of channel) ok = (await slack(c, text)) || ok;
+    return ok;
+  }
   // Slack not set up yet: log only, and don't count it as sent so the shop is told once Slack is live
   if (process.env.SLACK_PENDING === '1') { console.log(`[SLACK pending -> ${channel}] ${text.split('\n')[0]}`); return false; }
   if (DRY_RUN || !process.env.SLACK_BOT_TOKEN) {
