@@ -22,223 +22,220 @@
   "slack": {
     "defaultShopChannel": "U065UKGTN81",
     "escalationChannel": "U065UKGTN81",
-    "_note": "Shop alerts go as a direct message to each shop's Slack login. Escalations and offline sensors go to Will (U065UKGTN81)."
+    "_note": "Shop alerts go as a direct message to each shop's Slack login. Escalations and offline sensors go to Will (U065UKGTN81). Sensors not linked to a shop (e.g. Abbots Quay First Floor, Wifi Thermometer) show on the dashboard only."
   },
   "shops": [
     {
       "goveeName": "New Ferry",
       "shop": "New Ferry",
-      "area": "",
       "slackChannel": "U2RAF7XHR"
     },
     {
       "goveeName": "Crumpsall",
       "shop": "Crumpsall",
-      "area": "",
       "slackChannel": "U2RB8MR4K"
     },
     {
       "goveeName": "Fearnhead",
       "shop": "Fearnhead",
-      "area": "",
       "slackChannel": "U2RB94CH1"
     },
     {
       "goveeName": "Westbrook",
       "shop": "Westbrook",
-      "area": "",
       "slackChannel": "U2RBALEHZ"
     },
     {
       "goveeName": "Eastham",
       "shop": "Eastham",
-      "area": "",
       "slackChannel": "U2RBRKN3E"
     },
     {
       "goveeName": "Rossmore",
       "shop": "Rossmore",
-      "area": "",
       "slackChannel": "U2RBXMX3J"
     },
     {
       "goveeName": "Lord Street",
       "shop": "Lord Street",
-      "area": "",
-      "slackChannel": "U2RBYSXDW"
+      "slackChannel": "U2RBYSXDW",
+      "aliases": [
+        "Lord st"
+      ]
     },
     {
       "goveeName": "Wilmslow Road",
       "shop": "Wilmslow Road",
-      "area": "",
-      "slackChannel": "U2RBZS4VC"
+      "slackChannel": "U2RBZS4VC",
+      "aliases": [
+        "Wimslow rd",
+        "Wilmslow rd"
+      ]
     },
     {
       "goveeName": "Fred Street",
       "shop": "Fred Street",
-      "area": "",
-      "slackChannel": "U2RC0T2LQ"
+      "slackChannel": "U2RC0T2LQ",
+      "aliases": [
+        "Fred st"
+      ]
     },
     {
       "goveeName": "Woodchurch",
       "shop": "Woodchurch",
-      "area": "",
-      "slackChannel": "U2RC8SGLR"
+      "slackChannel": "U2RC8SGLR",
+      "aliases": [
+        "Woodchurch rd"
+      ]
     },
     {
       "goveeName": "Stalybridge",
       "shop": "Stalybridge",
-      "area": "",
       "slackChannel": "U2RCBB3RP"
     },
     {
       "goveeName": "Northgate",
       "shop": "Northgate",
-      "area": "",
       "slackChannel": "U2RCBTSPK"
     },
     {
       "goveeName": "Droylsden",
       "shop": "Droylsden",
-      "area": "",
       "slackChannel": "U2RCCT1J5"
     },
     {
       "goveeName": "West Kirby",
       "shop": "West Kirby",
-      "area": "",
       "slackChannel": "U2RCD4AQ1"
     },
     {
       "goveeName": "Borough Road",
       "shop": "Borough Road",
-      "area": "",
-      "slackChannel": "U2RCFASN6"
+      "slackChannel": "U2RCFASN6",
+      "aliases": [
+        "Borough rd"
+      ]
     },
     {
       "goveeName": "Greasby",
       "shop": "Greasby",
-      "area": "",
       "slackChannel": "U2RCFHAAW"
     },
     {
       "goveeName": "Birkdale",
       "shop": "Birkdale",
-      "area": "",
       "slackChannel": "U2RCHJ8AE"
     },
     {
       "goveeName": "Ormskirk",
       "shop": "Ormskirk",
-      "area": "",
       "slackChannel": "U2RCLUD1U"
     },
     {
       "goveeName": "Rainford",
       "shop": "Rainford",
-      "area": "",
       "slackChannel": "U2RCQD3MJ"
     },
     {
       "goveeName": "Cheetham Hill",
       "shop": "Cheetham Hill",
-      "area": "",
       "slackChannel": "U2RCSU9FG"
     },
     {
       "goveeName": "Claughton",
       "shop": "Claughton",
-      "area": "",
       "slackChannel": "U2RCT8SE4"
     },
     {
       "goveeName": "Billinge",
       "shop": "Billinge",
-      "area": "",
       "slackChannel": "U2RCTKKGE"
     },
     {
       "goveeName": "Heywood",
       "shop": "Heywood",
-      "area": "",
       "slackChannel": "U2RCTS8S2"
     },
     {
       "goveeName": "Bootle",
       "shop": "Bootle",
-      "area": "",
       "slackChannel": "U2RCUFJ56"
     },
     {
       "goveeName": "Bromborough",
       "shop": "Bromborough",
-      "area": "",
       "slackChannel": "U2RCVCSKG"
     },
     {
       "goveeName": "Albert Road",
       "shop": "Albert Road",
-      "area": "",
-      "slackChannel": "U2RCVNL1L"
+      "slackChannel": "U2RCVNL1L",
+      "aliases": [
+        "Albert rd",
+        "Albert staff"
+      ]
     },
     {
       "goveeName": "Sale Carpets",
       "shop": "Sale Carpets",
-      "area": "",
       "slackChannel": "U2RD1LKRD"
     },
     {
       "goveeName": "Strand",
       "shop": "Strand",
-      "area": "",
-      "slackChannel": "U2RD20NU9"
+      "slackChannel": "U2RD20NU9",
+      "aliases": [
+        "New Strand"
+      ]
     },
     {
       "goveeName": "Lancs Road",
       "shop": "Lancs Road",
-      "area": "",
       "slackChannel": "U2RD2EWP3"
     },
     {
       "goveeName": "Orchard Street",
       "shop": "Orchard Street",
-      "area": "",
-      "slackChannel": "U2RD2PP2M"
+      "slackChannel": "U2RD2PP2M",
+      "aliases": [
+        "Orchard st",
+        "Orchard staff"
+      ]
     },
     {
       "goveeName": "Garston",
       "shop": "Garston",
-      "area": "",
       "slackChannel": "U2RD5EQ2V"
     },
     {
       "goveeName": "Longsight",
       "shop": "Longsight",
-      "area": "",
       "slackChannel": "U2RD68ML7"
     },
     {
       "goveeName": "Great Moor",
       "shop": "Great Moor",
-      "area": "",
-      "slackChannel": "U2RD6S23C"
+      "slackChannel": "U2RD6S23C",
+      "aliases": [
+        "GT Moor"
+      ]
     },
     {
       "goveeName": "Hunts Cross",
       "shop": "Hunts Cross",
-      "area": "",
-      "slackChannel": "U2RD9CA7L"
+      "slackChannel": "U2RD9CA7L",
+      "aliases": [
+        "Hunt x"
+      ]
     },
     {
       "goveeName": "Sale Moor",
       "shop": "Sale Moor",
-      "area": "",
       "slackChannel": "U2RD9J3QA"
     },
     {
       "goveeName": "UpHolland",
       "shop": "UpHolland",
-      "area": "",
       "slackChannel": "U2RDB4CRG"
     }
   ],
@@ -249,5 +246,8 @@
     "heatingStaysAbove": 19.5,
     "relativeMargin": 2,
     "coolingBelow": 16
-  }
+  },
+  "ignoreSensors": [
+    "Test PA 1"
+  ]
 }

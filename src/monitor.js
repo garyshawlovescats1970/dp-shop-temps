@@ -105,16 +105,21 @@ function toCelsius(v) {
 function shopFor(device) {
   const norm = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const dn = norm(device.deviceName);
+  // every name a shop's sensors might use: its goveeName plus any aliases ("Fred st", "Wimslow rd")
+  const names = CONFIG.shops.flatMap((x) => [x.goveeName, ...(x.aliases || [])].filter(Boolean).map((n) => [norm(n), x]));
   const s =
     CONFIG.shops.find((x) => x.goveeDevice === device.device) ||
-    CONFIG.shops.find((x) => x.goveeName && norm(x.goveeName) === dn) ||
-    // e.g. "Eastham Shop" or "DP Eastham" -> Eastham; longest name first so "Sale Moor" beats "Sale"
-    [...CONFIG.shops].sort((a, b) => norm(b.goveeName).length - norm(a.goveeName).length)
-      .find((x) => x.goveeName && norm(x.goveeName).length >= 4 && dn.includes(norm(x.goveeName)));
+    names.find(([n]) => n === dn)?.[1] ||
+    // "Eastham staff" or "Upholland shop" -> that shop; longest name first so "Sale Moor" beats "Sale"
+    names.filter(([n]) => n.length >= 4).sort((a, b) => b[0].length - a[0].length).find(([n]) => dn.includes(n))?.[1];
+  // two sensors per shop: shop floor and behind the counter
+  const zone = /staff|counter/i.test(device.deviceName || '') ? 'Staff area' : 'Customer area';
   return {
-    shop: s?.shop || device.deviceName || device.device,
-    area: s?.area || 'All shops',
-    channel: s?.slackChannel || CONFIG.slack.defaultShopChannel,
+    shop: s ? `${s.shop} - ${zone}` : device.deviceName || device.device,
+    shopName: s?.shop || null,
+    zone: s ? zone : null,
+    area: s?.area || (s ? 'Shops' : 'Not a shop sensor'),
+    channel: s?.slackChannel || null, // unmapped sensors: dashboard only, no Slack
     mapped: Boolean(s),
   };
 }
@@ -143,7 +148,8 @@ async function govee(pathname, opts = {}) {
 
 async function listThermometers() {
   const { data = [] } = await govee('/user/devices');
-  return data.filter((d) =>
+  const ignore = (CONFIG.ignoreSensors || []).map((n) => n.toLowerCase());
+  return data.filter((d) => !ignore.includes(String(d.deviceName || '').toLowerCase().trim())).filter((d) =>
     d.type === 'devices.types.thermometer' ||
     (d.capabilities || []).some((c) => c.instance === 'sensorTemperature')
   );
@@ -187,6 +193,7 @@ function mockRead(d, prev) {
 
 // ---------- Slack ----------
 async function slack(channel, text) {
+  if (!channel) return true; // sensor not linked to a shop: dashboard only
   if (DRY_RUN || !process.env.SLACK_BOT_TOKEN) {
     console.log(`\n[SLACK -> ${channel}]\n${text}`);
     return true;
