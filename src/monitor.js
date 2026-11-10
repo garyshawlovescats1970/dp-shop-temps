@@ -292,7 +292,7 @@ async function main() {
         t.status = 'offline';
         t.offlineNotified = false;
       }
-      if (t.status === 'offline' && open && !t.offlineNotified) {
+      if (t.status === 'offline' && open && !t.offlineNotified && s.mapped) {
         if (await slack(CONFIG.slack.escalationChannel, msg.offline(s, t))) { t.offlineNotified = true; sent++; }
       }
       state.devices[d.device] = t;
@@ -333,7 +333,8 @@ async function main() {
     }
 
     if (isOut && open) {
-      if (!t.lastAlertAt) {
+      // first alert only when actually outside the range, not while hovering just inside it
+      if (!t.lastAlertAt && (temp < MIN || temp > MAX)) {
         if (await slack(s.channel, msg.first(s, t))) { t.firstAlertAt = t.lastAlertAt = nowIso; t.alerts = 1; sent++; }
       } else if (t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
         if (await slack(s.channel, msg.repeat(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; }
