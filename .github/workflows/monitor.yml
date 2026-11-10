@@ -50,7 +50,7 @@ jobs:
           fi
           if [ -z "$SLACK_BOT_TOKEN" ]; then
             echo "::warning::SLACK_BOT_TOKEN not added yet - readings and dashboard update, but no Slack messages are sent."
-            export DRY_RUN=1
+            export SLACK_PENDING=1
           fi
           node src/monitor.js
           echo "save=yes" >> "$GITHUB_OUTPUT"
