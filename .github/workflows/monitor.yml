@@ -1,0 +1,48 @@
+name: Shop temperature monitor
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes (UTC; opening hours are handled in config.json)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'What to run'
+        type: choice
+        options: [monitor, list-devices, dry-run]
+        default: monitor
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check temperatures
+        run: node src/monitor.js
+        env:
+          GOVEE_API_KEY: ${{ secrets.GOVEE_API_KEY }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          LIST_DEVICES: ${{ inputs.mode == 'list-devices' && '1' || '' }}
+          DRY_RUN: ${{ inputs.mode == 'dry-run' && '1' || '' }}
+
+      - name: Save state and dashboard
+        if: inputs.mode != 'list-devices' && inputs.mode != 'dry-run'
+        run: |
+          git config user.name "temp-monitor"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          git diff --cached --quiet || git commit -m "Update temperatures [skip ci]"
+          git pull --rebase -X theirs || true
+          git push

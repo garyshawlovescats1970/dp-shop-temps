@@ -1,0 +1,253 @@
+{
+  "comfort": {
+    "min": 18,
+    "max": 23
+  },
+  "recoveryMargin": 0.3,
+  "realertAfterMinutes": 60,
+  "maxShopAlerts": 3,
+  "escalateAfterMinutes": 120,
+  "offlineAfterMinutes": 45,
+  "temperatureUnitFromGovee": "auto",
+  "timezone": "Europe/London",
+  "openingHours": {
+    "mon": "08:30-22:00",
+    "tue": "08:30-22:00",
+    "wed": "08:30-22:00",
+    "thu": "08:30-22:00",
+    "fri": "08:30-22:00",
+    "sat": "08:30-22:00",
+    "sun": "09:30-20:00"
+  },
+  "slack": {
+    "defaultShopChannel": "U065UKGTN81",
+    "escalationChannel": "U065UKGTN81",
+    "_note": "Shop alerts go as a direct message to each shop's Slack login. Escalations and offline sensors go to Will (U065UKGTN81)."
+  },
+  "shops": [
+    {
+      "goveeName": "New Ferry",
+      "shop": "New Ferry",
+      "area": "",
+      "slackChannel": "U2RAF7XHR"
+    },
+    {
+      "goveeName": "Crumpsall",
+      "shop": "Crumpsall",
+      "area": "",
+      "slackChannel": "U2RB8MR4K"
+    },
+    {
+      "goveeName": "Fearnhead",
+      "shop": "Fearnhead",
+      "area": "",
+      "slackChannel": "U2RB94CH1"
+    },
+    {
+      "goveeName": "Westbrook",
+      "shop": "Westbrook",
+      "area": "",
+      "slackChannel": "U2RBALEHZ"
+    },
+    {
+      "goveeName": "Eastham",
+      "shop": "Eastham",
+      "area": "",
+      "slackChannel": "U2RBRKN3E"
+    },
+    {
+      "goveeName": "Rossmore",
+      "shop": "Rossmore",
+      "area": "",
+      "slackChannel": "U2RBXMX3J"
+    },
+    {
+      "goveeName": "Lord Street",
+      "shop": "Lord Street",
+      "area": "",
+      "slackChannel": "U2RBYSXDW"
+    },
+    {
+      "goveeName": "Wilmslow Road",
+      "shop": "Wilmslow Road",
+      "area": "",
+      "slackChannel": "U2RBZS4VC"
+    },
+    {
+      "goveeName": "Fred Street",
+      "shop": "Fred Street",
+      "area": "",
+      "slackChannel": "U2RC0T2LQ"
+    },
+    {
+      "goveeName": "Woodchurch",
+      "shop": "Woodchurch",
+      "area": "",
+      "slackChannel": "U2RC8SGLR"
+    },
+    {
+      "goveeName": "Stalybridge",
+      "shop": "Stalybridge",
+      "area": "",
+      "slackChannel": "U2RCBB3RP"
+    },
+    {
+      "goveeName": "Northgate",
+      "shop": "Northgate",
+      "area": "",
+      "slackChannel": "U2RCBTSPK"
+    },
+    {
+      "goveeName": "Droylsden",
+      "shop": "Droylsden",
+      "area": "",
+      "slackChannel": "U2RCCT1J5"
+    },
+    {
+      "goveeName": "West Kirby",
+      "shop": "West Kirby",
+      "area": "",
+      "slackChannel": "U2RCD4AQ1"
+    },
+    {
+      "goveeName": "Borough Road",
+      "shop": "Borough Road",
+      "area": "",
+      "slackChannel": "U2RCFASN6"
+    },
+    {
+      "goveeName": "Greasby",
+      "shop": "Greasby",
+      "area": "",
+      "slackChannel": "U2RCFHAAW"
+    },
+    {
+      "goveeName": "Birkdale",
+      "shop": "Birkdale",
+      "area": "",
+      "slackChannel": "U2RCHJ8AE"
+    },
+    {
+      "goveeName": "Ormskirk",
+      "shop": "Ormskirk",
+      "area": "",
+      "slackChannel": "U2RCLUD1U"
+    },
+    {
+      "goveeName": "Rainford",
+      "shop": "Rainford",
+      "area": "",
+      "slackChannel": "U2RCQD3MJ"
+    },
+    {
+      "goveeName": "Cheetham Hill",
+      "shop": "Cheetham Hill",
+      "area": "",
+      "slackChannel": "U2RCSU9FG"
+    },
+    {
+      "goveeName": "Claughton",
+      "shop": "Claughton",
+      "area": "",
+      "slackChannel": "U2RCT8SE4"
+    },
+    {
+      "goveeName": "Billinge",
+      "shop": "Billinge",
+      "area": "",
+      "slackChannel": "U2RCTKKGE"
+    },
+    {
+      "goveeName": "Heywood",
+      "shop": "Heywood",
+      "area": "",
+      "slackChannel": "U2RCTS8S2"
+    },
+    {
+      "goveeName": "Bootle",
+      "shop": "Bootle",
+      "area": "",
+      "slackChannel": "U2RCUFJ56"
+    },
+    {
+      "goveeName": "Bromborough",
+      "shop": "Bromborough",
+      "area": "",
+      "slackChannel": "U2RCVCSKG"
+    },
+    {
+      "goveeName": "Albert Road",
+      "shop": "Albert Road",
+      "area": "",
+      "slackChannel": "U2RCVNL1L"
+    },
+    {
+      "goveeName": "Sale Carpets",
+      "shop": "Sale Carpets",
+      "area": "",
+      "slackChannel": "U2RD1LKRD"
+    },
+    {
+      "goveeName": "Strand",
+      "shop": "Strand",
+      "area": "",
+      "slackChannel": "U2RD20NU9"
+    },
+    {
+      "goveeName": "Lancs Road",
+      "shop": "Lancs Road",
+      "area": "",
+      "slackChannel": "U2RD2EWP3"
+    },
+    {
+      "goveeName": "Orchard Street",
+      "shop": "Orchard Street",
+      "area": "",
+      "slackChannel": "U2RD2PP2M"
+    },
+    {
+      "goveeName": "Garston",
+      "shop": "Garston",
+      "area": "",
+      "slackChannel": "U2RD5EQ2V"
+    },
+    {
+      "goveeName": "Longsight",
+      "shop": "Longsight",
+      "area": "",
+      "slackChannel": "U2RD68ML7"
+    },
+    {
+      "goveeName": "Great Moor",
+      "shop": "Great Moor",
+      "area": "",
+      "slackChannel": "U2RD6S23C"
+    },
+    {
+      "goveeName": "Hunts Cross",
+      "shop": "Hunts Cross",
+      "area": "",
+      "slackChannel": "U2RD9CA7L"
+    },
+    {
+      "goveeName": "Sale Moor",
+      "shop": "Sale Moor",
+      "area": "",
+      "slackChannel": "U2RD9J3QA"
+    },
+    {
+      "goveeName": "UpHolland",
+      "shop": "UpHolland",
+      "area": "",
+      "slackChannel": "U2RDB4CRG"
+    }
+  ],
+  "overnight": {
+    "checkFrom": "01:00",
+    "checkTo": "05:00",
+    "heatingRiseBy": 0.5,
+    "heatingStaysAbove": 19.5,
+    "relativeMargin": 2,
+    "coolingBelow": 16
+  }
+}

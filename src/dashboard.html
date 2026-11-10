@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="300">
+<title>DP Shop Temperatures</title>
+<style>
+  :root {
+    --brand: #C8102E; --bg: #f4f4f5; --card: #ffffff; --ink: #18181b; --muted: #6b7280; --line: #e4e4e7;
+    --ok: #15803d; --ok-bg: #dcfce7; --cold: #1d4ed8; --cold-bg: #dbeafe; --hot: #b91c1c; --hot-bg: #fee2e2;
+    --off: #52525b; --off-bg: #e4e4e7; --band: rgba(21,128,61,.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0f11; --card: #1a1a1d; --ink: #f4f4f5; --muted: #a1a1aa; --line: #2e2e33;
+      --ok: #4ade80; --ok-bg: #14321f; --cold: #93c5fd; --cold-bg: #172554; --hot: #fca5a5; --hot-bg: #450a0a;
+      --off: #a1a1aa; --off-bg: #27272a; --band: rgba(74,222,128,.10);
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background: var(--brand); color: #fff; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+  header h1 { margin: 0; font-size: 20px; letter-spacing: .04em; text-transform: uppercase; }
+  header .meta { font-size: 13px; opacity: .9; }
+  main { max-width: 1400px; margin: 0 auto; padding: 20px 16px 40px; }
+  .stale { background: var(--hot-bg); color: var(--hot); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-weight: 600; display: none; }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; text-align: left; color: inherit; font: inherit; }
+  .stat[aria-pressed="true"] { outline: 2px solid var(--brand); }
+  .stat .n { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .stat.cold .n { color: var(--cold); } .stat.hot .n { color: var(--hot); } .stat.ok .n { color: var(--ok); } .stat.offline .n { color: var(--off); }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  select, input { font: inherit; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+  input { flex: 1; min-width: 160px; max-width: 280px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--ok); border-radius: 10px; padding: 12px 14px 10px; }
+  .tile.cold { border-left-color: var(--cold); } .tile.hot { border-left-color: var(--hot); } .tile.offline { border-left-color: var(--off); }
+  .top { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+  .name { font-weight: 700; } .area { font-size: 12px; color: var(--muted); }
+  .pill { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok); } .pill.cold { background: var(--cold-bg); color: var(--cold); }
+  .pill.hot { background: var(--hot-bg); color: var(--hot); } .pill.offline, .pill.unknown { background: var(--off-bg); color: var(--off); }
+  .temp { font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; margin: 4px 0 0; }
+  .temp small { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 8px; }
+  .note { font-size: 12.5px; color: var(--muted); min-height: 18px; }
+  .note b { color: var(--ink); }
+  svg { display: block; width: 100%; height: 46px; margin-top: 6px; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+  footer { margin-top: 24px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Shop Temperatures</h1>
+  <span class="meta" id="meta"></span>
+</header>
+<main>
+  <div class="stale" id="stale"></div>
+  <div class="summary" id="summary"></div>
+  <div class="toolbar">
+    <select id="area" aria-label="Area"><option value="">All areas</option></select>
+    <input id="q" type="search" placeholder="Search shop" aria-label="Search shop">
+  </div>
+  <div class="grid" id="grid"></div>
+  <footer id="foot"></footer>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+const TZ = 'Europe/London';
+const time = (d) => new Intl.DateTimeFormat('en-GB', { timeZone: TZ, hour: '2-digit', minute: '2-digit' }).format(new Date(d));
+const dayTime = (d) => new Intl.DateTimeFormat('en-GB', { timeZone: TZ, weekday: 'short', hour: '2-digit', minute: '2-digit' }).format(new Date(d));
+const mins = (a, b = Date.now()) => Math.round((new Date(b) - new Date(a)) / 60000);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const LABEL = { ok: 'In range', cold: 'Too cold', hot: 'Too warm', offline: 'Offline', unknown: 'Waiting' };
+const ORDER = { hot: 0, cold: 0, offline: 1, unknown: 2, ok: 3 };
+let filter = '';
+
+const shops = DATA ? Object.values(DATA.devices) : [];
+const { min = 18, max = 23 } = DATA?.comfort || {};
+
+function spark(hist) {
+  if (!hist || hist.length < 2) return '';
+  const W = 240, H = 46, t0 = Date.now() - 24 * 3600e3;
+  const vals = hist.map((h) => h[1]);
+  const lo = Math.min(min - 2, ...vals), hi = Math.max(max + 2, ...vals);
+  const x = (ts) => Math.max(0, (new Date(ts) - t0) / (24 * 3600e3)) * W;
+  const y = (v) => H - 3 - ((v - lo) / (hi - lo)) * (H - 6);
+  const pts = hist.map(([ts, v]) => `${x(ts).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const last = hist[hist.length - 1];
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="Last 24 hours">
+    <rect x="0" y="${y(max)}" width="${W}" height="${y(min) - y(max)}" fill="var(--band)"/>
+    <polyline points="${pts}" fill="none" stroke="var(--muted)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <circle cx="${x(last[0])}" cy="${y(last[1])}" r="2.5" fill="var(--ink)"/></svg>`;
+}
+
+function note(t) {
+  if (t.status === 'offline') return `No reading since <b>${t.lastReadingAt ? dayTime(t.lastReadingAt) : 'first check'}</b>`;
+  if ((t.status === 'cold' || t.status === 'hot') && t.firstAlertAt) {
+    const esc8 = t.escalatedAt ? ' &middot; <b>escalated</b>' : '';
+    return `Shop told at <b>${time(t.firstAlertAt)}</b> &middot; ${t.alerts} alert${t.alerts > 1 ? 's' : ''}${esc8}`;
+  }
+  if (t.status === 'cold' || t.status === 'hot') return 'Out of range since ' + time(t.since) + ' (shop closed)';
+  return t.since ? `In range since ${dayTime(t.since)}` : '';
+}
+
+function render() {
+  const area = document.getElementById('area').value;
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const list = shops
+    .filter((t) => !area || t.area === area)
+    .filter((t) => !q || t.shop.toLowerCase().includes(q))
+    .filter((t) => !filter || (filter === 'action' ? (t.status === 'cold' || t.status === 'hot') : t.status === filter))
+    .sort((a, b) => ORDER[a.status] - ORDER[b.status] || a.shop.localeCompare(b.shop));
+  document.getElementById('grid').innerHTML = list.length ? list.map((t) => `
+    <article class="tile ${t.status}">
+      <div class="top"><div><div class="name">${esc(t.shop)}</div><div class="area">${esc(t.area)}</div></div>
+        <span class="pill ${t.status}">${LABEL[t.status] || t.status}</span></div>
+      <div class="temp">${t.tempC != null && t.status !== 'offline' ? t.tempC.toFixed(1) + '°C' : '--'}${t.humidity != null && t.status !== 'offline' ? `<small>${Math.round(t.humidity)}% RH</small>` : ''}</div>
+      <div class="note">${note(t)}</div>
+      ${spark(t.history)}
+    </article>`).join('') : '<div class="empty">No shops match.</div>';
+}
+
+function summary() {
+  const c = shops.reduce((a, t) => ((a[t.status] = (a[t.status] || 0) + 1), a), {});
+  const items = [
+    ['', 'All shops', shops.length, ''],
+    ['action', 'Need action', (c.cold || 0) + (c.hot || 0), (c.cold || c.hot) ? 'hot' : ''],
+    ['cold', 'Too cold', c.cold || 0, 'cold'],
+    ['hot', 'Too warm', c.hot || 0, 'hot'],
+    ['offline', 'Sensor offline', c.offline || 0, 'offline'],
+    ['ok', 'In range', c.ok || 0, 'ok'],
+  ];
+  document.getElementById('summary').innerHTML = items.map(([f, l, n, cls]) =>
+    `<button class="stat ${cls}" data-f="${f}" aria-pressed="${filter === f}"><div class="n">${n}</div><div class="l">${l}</div></button>`).join('');
+  document.querySelectorAll('.stat').forEach((b) => b.onclick = () => { filter = b.dataset.f; summary(); render(); });
+}
+
+if (!DATA) {
+  document.getElementById('grid').innerHTML = '<div class="empty">No data yet. The first monitor run will fill this page.</div>';
+} else {
+  document.getElementById('meta').textContent =
+    `Comfortable range ${min}-${max}°C · Updated ${dayTime(DATA.updatedAt)} · Shops ${DATA.shopsOpen ? 'open' : 'closed'}`;
+  const age = mins(DATA.updatedAt);
+  if (age > 40) {
+    const s = document.getElementById('stale');
+    s.style.display = 'block';
+    s.textContent = `Data is ${age} minutes old - the monitor may have stopped running. Check the GitHub Actions tab.`;
+  }
+  [...new Set(shops.map((t) => t.area))].sort().forEach((a) =>
+    document.getElementById('area').insertAdjacentHTML('beforeend', `<option>${esc(a)}</option>`));
+  document.getElementById('area').onchange = render;
+  document.getElementById('q').oninput = render;
+  document.getElementById('foot').textContent = 'Checks every 15 minutes. Page refreshes automatically. Green band on each chart = comfortable range, last 24 hours.';
+  summary(); render();
+}
+</script>
+</body>
+</html>
