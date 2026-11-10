@@ -30,15 +30,33 @@ jobs:
           node-version: 20
 
       - name: Check temperatures
-        run: node src/monitor.js
+        id: run
         env:
           GOVEE_API_KEY: ${{ secrets.GOVEE_API_KEY }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          LIST_DEVICES: ${{ inputs.mode == 'list-devices' && '1' || '' }}
-          DRY_RUN: ${{ inputs.mode == 'dry-run' && '1' || '' }}
+          MODE: ${{ inputs.mode || 'monitor' }}
+        run: |
+          if [ -z "$GOVEE_API_KEY" ]; then
+            echo "::notice::GOVEE_API_KEY secret not added yet - nothing to do."
+            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$MODE" = "list-devices" ]; then
+            LIST_DEVICES=1 DRY_RUN=1 node src/monitor.js
+            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$MODE" = "dry-run" ]; then
+            DRY_RUN=1 node src/monitor.js
+            echo "save=no" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ -z "$SLACK_BOT_TOKEN" ]; then
+            echo "::warning::SLACK_BOT_TOKEN not added yet - readings and dashboard update, but no Slack messages are sent."
+            export DRY_RUN=1
+          fi
+          node src/monitor.js
+          echo "save=yes" >> "$GITHUB_OUTPUT"
 
-      - name: Save state and dashboard
-        if: inputs.mode != 'list-devices' && inputs.mode != 'dry-run'
+      - name: Save state, dashboard and overnight report
+        if: steps.run.outputs.save == 'yes'
         run: |
           git config user.name "temp-monitor"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
