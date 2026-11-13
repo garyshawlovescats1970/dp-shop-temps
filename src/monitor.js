@@ -88,11 +88,20 @@ function judgeNight(rows) {
     if (!why.length && r.minTemp >= NIGHT.heatingStaysAbove && r.drop <= Math.max(0.5, med - NIGHT.relativeMargin))
       why.push(`held at ${r.minTemp}°C or above all night, dropped only ${r.drop}°C (most shops dropped ${med}°C)`);
     if (why.length) { r.flag = 'heating'; r.reason = why.join('; '); continue; }
-    if (r.minTemp < NIGHT.coolingBelow && r.drop >= med + NIGHT.relativeMargin) {
+    // a big overnight drop in winter is just a cold building, so only flag cooling in the warm months
+    const month = Number(localParts(NOW).month);
+    if ((NIGHT.coolingMonths || [5, 6, 7, 8, 9]).includes(month) && r.minTemp < NIGHT.coolingBelow && r.drop >= med + NIGHT.relativeMargin) {
       r.flag = 'cooling'; r.reason = `fell to ${r.minTemp}°C, a ${r.drop}°C drop against ${med}°C for most shops`;
     }
   }
   return med;
+}
+
+// shop and manager messages only go out inside these hours (every day)
+function inAlertHours(date) {
+  const [from, to] = (CONFIG.alertHours || '09:00-20:00').split('-').map(hm);
+  const m = localMinutes(date);
+  return m >= from && m < to;
 }
 
 function toCelsius(v) {
@@ -180,6 +189,7 @@ async function readDevice(d) {
 
 // ---------- mock sensors (testing only) ----------
 function mockDevices() {
+  if (process.env.MOCK_DEVICES) return JSON.parse(process.env.MOCK_DEVICES).map((d) => ({ sku: 'H5179', ...d }));
   const names = CONFIG.shops.map((s) => s.goveeName);
   return names.map((n, i) => ({ sku: 'H5179', device: `MOCK:${i}`, deviceName: n }));
 }
@@ -216,22 +226,45 @@ async function slack(channel, text) {
   return true;
 }
 
-const action = (status) => (status === 'cold' ? 'HEATING' : 'COOLING (air con)');
-const word = (status) => (status === 'cold' ? 'cold' : 'warm');
 const range = `${MIN}-${MAX}°C`;
+const t1 = (t) => t.tempC.toFixed(1);
+const URGENT_LOW = CONFIG.urgentBelow ?? 16;
+const URGENT_HIGH = CONFIG.urgentAbove ?? 25;
 
 const msg = {
-  first: (s, t) =>
-    `*TEMPERATURE ALERT - ${s.shop}*\nThe shop is too ${word(t.status)}: *${t.tempC.toFixed(1)}°C* (comfortable range ${range}).\n*Turn the ${action(t.status)} ON for 1 hour.* You will get a message when the shop is back in range.`,
-  repeat: (s, t, mins) =>
-    `*STILL TOO ${word(t.status).toUpperCase()} - ${s.shop}*\nNow *${t.tempC.toFixed(1)}°C*, ${fmtDuration(mins)} after the first alert.\n*Check the ${action(t.status)} is on and doors are closed. Keep it on for another hour.*`,
-  recovered: (s, t, prevStatus) =>
-    `*BACK IN RANGE - ${s.shop}*\nNow *${t.tempC.toFixed(1)}°C*. *Switch the ${action(prevStatus)} OFF.*`,
-  escalate: (s, t, mins) =>
-    `*ESCALATION - ${s.shop}*\nStill too ${word(t.status)} after ${fmtDuration(mins)} of alerts: *${t.tempC.toFixed(1)}°C* (range ${range}). First alert at ${fmtTime(t.firstAlertAt)}. Possible ${t.status === 'cold' ? 'heating' : 'cooling'} fault - please contact the shop.`,
+  first: (s, t) => t.status === 'cold'
+    ? `*TOO COLD - ${s.shop}*\nNow *${t1(t)}°C* (comfortable range ${range}).\n*Turn the heating ON and set the thermostat to 21°C. Do not leave it on full.*\nYou will get a message when the shop is back in range.`
+    : `*TOO WARM - ${s.shop}*\nNow *${t1(t)}°C* (comfortable range ${range}).\n*Turn the heating OFF if it is on. If it is still too warm, put the air con on at 21°C.*\nYou will get a message when the shop is back in range.`,
+  repeat: (s, t, mins) => t.status === 'cold'
+    ? `*STILL TOO COLD - ${s.shop}*\nNow *${t1(t)}°C*, ${fmtDuration(mins)} after the first alert.\n*Check the heating is on, set to 21°C, and the doors are closed.*`
+    : `*STILL TOO WARM - ${s.shop}*\nNow *${t1(t)}°C*, ${fmtDuration(mins)} after the first alert.\n*Check the heating is OFF. Put the air con on at 21°C if needed.*`,
+  recovered: (s, t, prevStatus) => prevStatus === 'cold'
+    ? `*BACK IN RANGE - ${s.shop}*\nNow *${t1(t)}°C*. *Turn the heating DOWN or OFF now. Do not let the shop go above 23°C.*`
+    : `*BACK IN RANGE - ${s.shop}*\nNow *${t1(t)}°C*. *Switch the air con OFF.*`,
+  urgent: (s, t, mins) =>
+    `*URGENT - ${s.shop}*\n*${t1(t)}°C* and still out of range ${fmtDuration(mins)} after the first alert (first told at ${fmtTime(t.firstAlertAt)}). Possible ${t.status === 'cold' ? 'heating' : 'cooling'} fault - please contact the shop.`,
   offline: (s, t) =>
     `*SENSOR OFFLINE - ${s.shop}*\nNo reading since ${t.lastReadingAt ? fmtTime(t.lastReadingAt) : 'first check'}. Check the sensor batteries and the Govee Wi-Fi gateway.`,
 };
+
+// manager summary at set times: who has been out of range 2+ hours, offline sensors, today's totals
+function buildDigest(state, slot) {
+  const devs = Object.values(state.devices).filter((t) => t.mapped !== false);
+  const longOut = devs.filter((t) => (t.status === 'cold' || t.status === 'hot') && t.firstAlertAt &&
+      minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes)
+    .sort((a, b) => a.shop.localeCompare(b.shop));
+  const off = devs.filter((t) => t.status === 'offline').sort((a, b) => a.shop.localeCompare(b.shop));
+  const d = state.today || {};
+  const lines = [`*TEMPERATURE SUMMARY - ${slot}*`,
+    `Today so far: ${d.alerts || 0} alerts to ${(d.shops || []).length} shops, ${d.reminders || 0} reminders, ${d.recovered || 0} back in range.`];
+  lines.push(longOut.length ? `\n*Out of range for 2+ hours (${longOut.length}):*` : '\nNo shops out of range for 2+ hours.');
+  for (const t of longOut) lines.push(`- ${t.shop}: ${t1(t)}°C ${t.status === 'cold' ? 'too cold' : 'too warm'} since ${fmtTime(t.firstAlertAt)}${t.urgentAt ? ' (urgent alert sent)' : ''}`);
+  if (off.length) {
+    lines.push(`\n*Sensors offline (${off.length}):*`);
+    for (const t of off) lines.push(`- ${t.shop}: ${t.lastReadingAt && localDate(t.lastReadingAt) === localDate(NOW) ? 'no reading since ' + fmtTime(t.lastReadingAt) : 'not reporting (check batteries / Wi-Fi gateway)'}`);
+  }
+  return lines.join('\n');
+}
 
 // ---------- main ----------
 async function main() {
@@ -279,6 +312,10 @@ async function main() {
   try { state = JSON.parse(await fs.readFile(STATE_FILE, 'utf8')); } catch { /* first run */ }
 
   const open = isOpen(NOW);
+  const alertsOn = inAlertHours(NOW);
+  const today = localDate(NOW);
+  if (!state.today || state.today.date !== today) state.today = { date: today, alerts: 0, reminders: 0, recovered: 0, urgent: 0, shops: [] };
+  const count = (key, shop) => { state.today[key]++; if (shop && !state.today.shops.includes(shop)) state.today.shops.push(shop); };
   const devices = MOCK ? mockDevices() : await listThermometers();
   const readings = await mapLimit(devices, 4, (d) => (MOCK ? mockRead(d, state.devices[d.device]) : readDevice(d)));
   const nowIso = NOW.toISOString();
@@ -297,9 +334,6 @@ async function main() {
       if (staleMins >= CONFIG.offlineAfterMinutes && t.status !== 'offline') {
         t.status = 'offline';
         t.offlineNotified = false;
-      }
-      if (t.status === 'offline' && open && !t.offlineNotified && s.mapped) {
-        if (await slack(CONFIG.slack.escalationChannel, msg.offline(s, t))) { t.offlineNotified = true; sent++; }
       }
       state.devices[d.device] = t;
       continue;
@@ -331,29 +365,36 @@ async function main() {
     const wasOut = prev === 'cold' || prev === 'hot';
     const isOut = status === 'cold' || status === 'hot';
 
+    // an incident left over from a previous day starts afresh (no "13 hours later" reminders)
+    if (isOut && wasOut && t.firstAlertAt && localDate(t.firstAlertAt) !== today) {
+      Object.assign(t, { firstAlertAt: null, lastAlertAt: null, escalatedAt: null, urgentAt: null, alerts: 0, since: nowIso });
+    }
     if (isOut && (!wasOut || prev !== status)) {
       // new breach (or flipped cold <-> hot)
-      Object.assign(t, { status, since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, alerts: 0 });
+      Object.assign(t, { status, since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, urgentAt: null, alerts: 0 });
     } else {
       t.status = status;
     }
 
-    if (isOut && open) {
+    if (isOut && alertsOn && s.mapped) {
       // first alert only when actually outside the range, not while hovering just inside it
       if (!t.lastAlertAt && (temp < MIN || temp > MAX)) {
-        if (await slack(s.channel, msg.first(s, t))) { t.firstAlertAt = t.lastAlertAt = nowIso; t.alerts = 1; sent++; }
-      } else if (t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
-        if (await slack(s.channel, msg.repeat(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; }
+        if (await slack(s.channel, msg.first(s, t))) { t.firstAlertAt = t.lastAlertAt = nowIso; t.alerts = 1; sent++; count('alerts', s.shopName); }
+      } else if (t.lastAlertAt && t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
+        if (await slack(s.channel, msg.repeat(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; count('reminders'); }
       }
-      if (s.mapped && t.firstAlertAt && !t.escalatedAt && minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes) {
-        if (await slack(CONFIG.slack.escalationChannel, msg.escalate(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.escalatedAt = nowIso; sent++; }
+      // managers only hear straight away about serious cases; everything else is in the summary
+      const serious = temp < URGENT_LOW || temp > URGENT_HIGH;
+      if (serious && t.firstAlertAt && !t.urgentAt && minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes) {
+        if (await slack(CONFIG.slack.escalationChannel, msg.urgent(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.urgentAt = nowIso; sent++; count('urgent'); }
       }
     }
 
     if (!isOut && wasOut) {
       // only tell the shop to switch off if they were told to switch on
-      if (t.firstAlertAt && open) { if (await slack(s.channel, msg.recovered(s, t, prev))) sent++; }
-      Object.assign(t, { since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, alerts: 0 });
+      // still sent after alert hours while the shop is open, so heating told on is told off
+      if (t.firstAlertAt && (alertsOn || open) && s.mapped) { if (await slack(s.channel, msg.recovered(s, t, prev))) { sent++; count('recovered'); } }
+      Object.assign(t, { since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, urgentAt: null, alerts: 0 });
     }
     if (!isOut && prev === 'offline') t.since = nowIso;
     t.offlineNotified = false;
@@ -386,6 +427,14 @@ async function main() {
       await fs.mkdir(path.dirname(OVERNIGHT_FILE), { recursive: true });
       await fs.writeFile(OVERNIGHT_FILE, JSON.stringify(report, null, 2));
       console.log(`Overnight report for ${nightOf}: ${flagged.length} flagged of ${rows.length} (median drop ${med}°C)`);
+    }
+  }
+
+  // manager summaries at the set times (first check at or after each time, once a day)
+  if (!state.digests || state.digests.date !== today) state.digests = { date: today, sent: [] };
+  for (const slot of CONFIG.digestTimes || ['12:00', '17:00']) {
+    if (localMinutes(NOW) >= hm(slot) && alertsOn && !state.digests.sent.includes(slot)) {
+      if (await slack(CONFIG.slack.escalationChannel, buildDigest(state, slot))) { state.digests.sent.push(slot); sent++; }
     }
   }
 

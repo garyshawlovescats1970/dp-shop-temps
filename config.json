@@ -7,9 +7,16 @@
   "realertAfterMinutes": 60,
   "maxShopAlerts": 3,
   "escalateAfterMinutes": 120,
+  "urgentBelow": 16,
+  "urgentAbove": 25,
+  "digestTimes": [
+    "12:00",
+    "17:00"
+  ],
   "offlineAfterMinutes": 45,
   "temperatureUnitFromGovee": "auto",
   "timezone": "Europe/London",
+  "alertHours": "09:00-20:00",
   "openingHours": {
     "mon": "08:30-22:00",
     "tue": "08:30-22:00",
@@ -252,7 +259,14 @@
     "heatingRiseBy": 0.5,
     "heatingStaysAbove": 19.5,
     "relativeMargin": 2,
-    "coolingBelow": 16
+    "coolingBelow": 16,
+    "coolingMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
   },
   "ignoreSensors": [
     "Test PA 1"

@@ -76,3 +76,9 @@ The key was shared in a chat. Request a new one in the Govee Home app (Profile >
 - GitHub can delay scheduled runs by 5-15 minutes at busy times. The dashboard shows a warning if data is over 40 minutes old.
 - Govee allows 10,000 requests a day; 36 sensors every 15 minutes uses about 3,500.
 - Local test without hardware: `MOCK=1 DRY_RUN=1 node src/monitor.js`
+
+## Rules from 13 Nov 2026
+- Shop alerts and reminders only 09:00-20:00, every day. A "back in range" message still goes after 20:00 while the shop is open, so heating told on is told off.
+- Alert wording: heating on at 21 C thermostat, not full; too-warm alerts tell staff to turn the heating off first.
+- Managers: no individual escalations or offline alerts. A summary at 12:00 and 17:00, plus an URGENT message only when a shop is still out of range after 2 hours AND below 16 C or above 25 C.
+- Overnight "cooling left on" flag only May-September.
