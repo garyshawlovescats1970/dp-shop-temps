@@ -4,6 +4,7 @@
     "max": 23
   },
   "recoveryMargin": 0.3,
+  "confirmChecks": 2,
   "realertAfterMinutes": 60,
   "maxShopAlerts": 3,
   "escalateAfterMinutes": 120,

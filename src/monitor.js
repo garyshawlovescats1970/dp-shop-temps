@@ -98,6 +98,15 @@ function judgeNight(rows) {
 }
 
 // shop and manager messages only go out inside these hours (every day)
+// minutes since the first alert, counted only from when today's alert hours began,
+// so a shop is never told it has "ignored" alerts through the night
+function alertMins(t, now) {
+  if (!t.firstAlertAt) return 0;
+  const [from] = (CONFIG.alertHours || '09:00-20:00').split('-').map(hm);
+  const windowStart = new Date(now.getTime() - (localMinutes(now) - from) * 60000);
+  const start = Math.max(new Date(t.firstAlertAt).getTime(), windowStart.getTime());
+  return Math.max(0, Math.round((now.getTime() - start) / 60000));
+}
 function inAlertHours(date) {
   const [from, to] = (CONFIG.alertHours || '09:00-20:00').split('-').map(hm);
   const m = localMinutes(date);
@@ -251,7 +260,7 @@ const msg = {
 function buildDigest(state, slot) {
   const devs = Object.values(state.devices).filter((t) => t.mapped !== false);
   const longOut = devs.filter((t) => (t.status === 'cold' || t.status === 'hot') && t.firstAlertAt &&
-      minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes)
+      alertMins(t, NOW) >= CONFIG.escalateAfterMinutes)
     .sort((a, b) => a.shop.localeCompare(b.shop));
   const off = devs.filter((t) => t.status === 'offline').sort((a, b) => a.shop.localeCompare(b.shop));
   const d = state.today || {};
@@ -350,6 +359,9 @@ async function main() {
     else status = 'ok';
 
     Object.assign(t, { tempC: temp, humidity: r.humidity, lastReadingAt: nowIso });
+    // sensitivity: count consecutive checks actually outside the range, so a single blip
+    // (door opened, sensor near a heater) does not trigger an alert on its own
+    t.outChecks = (temp < MIN || temp > MAX) ? (t.outChecks || 0) + 1 : 0;
 
     // overnight tracking: closing temperature, then every reading until opening
     if (open) {
@@ -378,15 +390,15 @@ async function main() {
 
     if (isOut && alertsOn && s.mapped) {
       // first alert only when actually outside the range, not while hovering just inside it
-      if (!t.lastAlertAt && (temp < MIN || temp > MAX)) {
+      if (!t.lastAlertAt && (temp < MIN || temp > MAX) && t.outChecks >= (CONFIG.confirmChecks || 2)) {
         if (await slack(s.channel, msg.first(s, t))) { t.firstAlertAt = t.lastAlertAt = nowIso; t.alerts = 1; sent++; count('alerts', s.shopName); }
       } else if (t.lastAlertAt && t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
-        if (await slack(s.channel, msg.repeat(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; count('reminders'); }
+        if (await slack(s.channel, msg.repeat(s, t, alertMins(t, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; count('reminders'); }
       }
       // managers only hear straight away about serious cases; everything else is in the summary
       const serious = temp < URGENT_LOW || temp > URGENT_HIGH;
-      if (serious && t.firstAlertAt && !t.urgentAt && minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes) {
-        if (await slack(CONFIG.slack.escalationChannel, msg.urgent(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.urgentAt = nowIso; sent++; count('urgent'); }
+      if (serious && t.firstAlertAt && !t.urgentAt && alertMins(t, NOW) >= CONFIG.escalateAfterMinutes) {
+        if (await slack(CONFIG.slack.escalationChannel, msg.urgent(s, t, alertMins(t, NOW)))) { t.urgentAt = nowIso; sent++; count('urgent'); }
       }
     }
 
