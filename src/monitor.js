@@ -345,7 +345,7 @@ async function main() {
       } else if (t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
         if (await slack(s.channel, msg.repeat(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; }
       }
-      if (t.firstAlertAt && !t.escalatedAt && minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes) {
+      if (s.mapped && t.firstAlertAt && !t.escalatedAt && minsBetween(t.firstAlertAt, NOW) >= CONFIG.escalateAfterMinutes) {
         if (await slack(CONFIG.slack.escalationChannel, msg.escalate(s, t, minsBetween(t.firstAlertAt, NOW)))) { t.escalatedAt = nowIso; sent++; }
       }
     }
