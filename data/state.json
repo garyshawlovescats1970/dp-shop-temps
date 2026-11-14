@@ -6,7 +6,7 @@
       "shop": "Abbots Quay First Floo",
       "area": "Not a shop sensor",
       "mapped": false,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": true,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -16,10 +16,6 @@
     "35:C0:3F:9D:09:12:6C:A8": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.7
@@ -419,16 +415,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.5
         ]
       ],
       "shop": "Billinge - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.3,
-      "humidity": 38.1,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.3,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.5,
+      "humidity": 37.9,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.5,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -441,10 +441,6 @@
     "50:10:3F:9D:09:03:04:F1": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.9
@@ -844,15 +840,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.7
         ]
       ],
       "shop": "Fred Street - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.7,
-      "humidity": 37.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 37.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.7,
       "since": "2026-11-14T09:20:21.029Z",
       "firstAlertAt": null,
@@ -866,10 +866,6 @@
     "76:46:3F:9D:09:13:24:D6": {
       "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21
@@ -1269,32 +1265,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           23.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          23.3
         ]
       ],
       "shop": "Albert Road - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 23.3,
       "humidity": 39.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 23.3,
       "since": "2026-11-14T11:05:20.591Z",
       "firstAlertAt": "2026-11-14T11:20:20.609Z",
-      "lastAlertAt": "2026-11-14T11:20:20.609Z",
+      "lastAlertAt": "2026-11-14T12:20:38.167Z",
       "escalatedAt": null,
-      "alerts": 1,
+      "alerts": 2,
       "offlineNotified": false,
-      "outChecks": 6,
+      "outChecks": 7,
       "urgentAt": null
     },
     "31:A0:3F:9D:09:13:54:E6": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.9
@@ -1694,12 +1690,16 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.3
         ]
       ],
       "shop": "Bootle - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -1707,7 +1707,7 @@
       "alerts": 0,
       "tempC": 22.3,
       "humidity": 34.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 22.3,
       "since": "2026-11-14T08:20:19.921Z",
       "outChecks": 0,
@@ -1717,10 +1717,6 @@
       "status": "hot",
       "history": [
         [
-          "2026-11-13T12:19:07.981Z",
-          23.6
-        ],
-        [
           "2026-11-13T12:34:08.114Z",
           23.7
         ],
@@ -2119,15 +2115,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           23.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          23.6
         ]
       ],
       "shop": "Wifi Thermometer",
       "area": "Not a shop sensor",
       "mapped": false,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 23.6,
       "humidity": 36.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 23.6,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -2135,16 +2135,12 @@
       "escalatedAt": null,
       "alerts": 0,
       "since": "2026-11-14T11:35:37.452Z",
-      "outChecks": 3,
+      "outChecks": 4,
       "urgentAt": null
     },
     "37:D8:3F:9D:09:11:FC:EC": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.8
@@ -2544,16 +2540,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20
         ]
       ],
       "shop": "Hunts Cross - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.7,
-      "humidity": 39.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.7,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20,
+      "humidity": 41,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -2566,10 +2566,6 @@
     "CA:20:3F:9D:09:12:B1:1C": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.8
@@ -2969,16 +2965,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.5
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.7
         ]
       ],
       "shop": "Ormskirk - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.5,
-      "humidity": 41.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.5,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.7,
+      "humidity": 42.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.7,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -2991,10 +2991,6 @@
     "1A:77:3F:9D:09:13:48:8A": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.5
@@ -3394,15 +3390,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.4
         ]
       ],
       "shop": "Claughton - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.4,
-      "humidity": 41.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 40.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.4,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -3416,10 +3416,6 @@
     "27:28:3F:9D:08:E3:C8:AF": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.1
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.1
@@ -3819,16 +3815,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.3
         ]
       ],
       "shop": "West Kirby - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 19.6,
-      "humidity": 41.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 19.6,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.3,
+      "humidity": 41.3,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.3,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -3841,10 +3841,6 @@
     "6A:6E:3F:9D:09:12:5C:AC": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.7
@@ -4244,16 +4240,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.5
         ]
       ],
       "shop": "Bromborough - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.4,
-      "humidity": 46.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.4,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.5,
+      "humidity": 46.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.5,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -4266,10 +4266,6 @@
     "AA:5E:3F:9D:09:10:A8:64": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.8
@@ -4669,15 +4665,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.6
         ]
       ],
       "shop": "UpHolland - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 21.6,
-      "humidity": 36,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 35.4,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 21.6,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -4691,10 +4691,6 @@
     "FB:CD:3F:9D:09:11:C4:56": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          18.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           18.9
@@ -5094,16 +5090,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.5
         ]
       ],
       "shop": "Sale Carpets - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.4,
-      "humidity": 41.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.4,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.5,
+      "humidity": 41.3,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.5,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -5116,10 +5116,6 @@
     "11:56:3F:9D:08:F2:C0:FC": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.7
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.9
@@ -5519,16 +5515,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.7
         ]
       ],
       "shop": "Eastham - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 19.3,
-      "humidity": 44.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 19.3,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.7,
+      "humidity": 44.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.7,
       "since": "2026-11-14T11:20:20.609Z",
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -5541,10 +5541,6 @@
     "69:A1:3F:9D:08:E2:BC:C8": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          18.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           18.5
@@ -5944,16 +5940,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           18.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.2
         ]
       ],
       "shop": "Cheetham Hill - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 18.7,
-      "humidity": 41.5,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 18.7,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.2,
+      "humidity": 41.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.2,
       "since": "2026-11-14T11:05:20.591Z",
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -5966,10 +5966,6 @@
     "89:77:3F:9D:08:E2:68:99": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.1
@@ -6369,16 +6365,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.3
         ]
       ],
       "shop": "Crumpsall - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.2,
-      "humidity": 35.3,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.2,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.3,
+      "humidity": 35.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.3,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -6391,10 +6391,6 @@
     "D3:40:3F:9D:08:F2:C4:18": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          23.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.3
@@ -6794,16 +6790,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.7
         ]
       ],
       "shop": "Fearnhead - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.8,
-      "humidity": 40.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.7,
+      "humidity": 41.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.7,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -6816,10 +6816,6 @@
     "13:BA:3F:9D:08:F2:68:51": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.3
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.4
@@ -7219,16 +7215,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.3
         ]
       ],
       "shop": "Heywood - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.2,
-      "humidity": 42.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.2,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.3,
+      "humidity": 42.4,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.3,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -7241,10 +7241,6 @@
     "FE:DB:3F:9D:08:E2:A0:3B": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.7
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.4
@@ -7644,16 +7640,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.2
         ]
       ],
       "shop": "Rainford - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.1,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.2,
       "humidity": 40.5,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.2,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -7666,10 +7666,6 @@
     "5D:B2:3F:9D:09:02:F8:9F": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.1
@@ -8069,16 +8065,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.4
         ]
       ],
       "shop": "Sale Moor - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 19.1,
-      "humidity": 39.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 19.1,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.4,
+      "humidity": 40.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.4,
       "since": "2026-11-14T10:50:20.336Z",
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -8091,10 +8091,6 @@
     "0F:64:3F:9D:08:E3:34:32": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          18.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           18.6
@@ -8494,16 +8490,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           18.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.2
         ]
       ],
       "shop": "Northgate - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 18.7,
-      "humidity": 41,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 18.7,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.2,
+      "humidity": 40.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.2,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -8516,10 +8516,6 @@
     "96:6B:3F:9D:09:12:AC:37": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.6
@@ -8919,16 +8915,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.8
         ]
       ],
       "shop": "Lancs Road - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.6,
-      "humidity": 45.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.6,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.8,
+      "humidity": 45.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.8,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -8941,10 +8941,6 @@
     "DF:8D:3F:9D:09:12:88:0C": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.3
@@ -9344,16 +9340,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.2
         ]
       ],
       "shop": "Birkdale - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.2,
       "humidity": 37.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.2,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -9366,10 +9366,6 @@
     "D9:04:3F:9D:09:11:CD:0C": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.4
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.8
@@ -9769,15 +9765,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.4
         ]
       ],
       "shop": "Greasby - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 21.4,
       "humidity": 40.5,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 21.4,
       "since": "2026-11-14T09:35:20.987Z",
       "firstAlertAt": null,
@@ -9791,10 +9791,6 @@
     "8B:55:3F:9D:08:E3:A0:80": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.7
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.8
@@ -10194,16 +10190,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.5
         ]
       ],
       "shop": "Woodchurch - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22.2,
-      "humidity": 41,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22.2,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.5,
+      "humidity": 41.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.5,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -10216,10 +10216,6 @@
     "0A:9B:3F:9D:08:F2:AD:17": {
       "status": "cold",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          18.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19
@@ -10619,32 +10615,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           17.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          17.9
         ]
       ],
       "shop": "Borough Road - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 17.8,
-      "humidity": 39.3,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 17.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 17.9,
+      "humidity": 39,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 17.9,
       "since": "2026-11-14T00:49:42.784Z",
       "firstAlertAt": "2026-11-14T09:05:20.538Z",
       "lastAlertAt": "2026-11-14T11:20:38.091Z",
       "escalatedAt": null,
       "alerts": 3,
       "offlineNotified": false,
-      "outChecks": 49,
+      "outChecks": 50,
       "urgentAt": null
     },
     "5A:00:3F:9D:09:10:E1:1A": {
-      "status": "ok",
+      "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          23.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           23.9
@@ -11044,32 +11040,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.9
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          23.8
         ]
       ],
       "shop": "Wilmslow Road - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22.9,
-      "humidity": 35.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22.9,
-      "since": "2026-11-14T00:19:42.833Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 23.8,
+      "humidity": 36,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 23.8,
+      "since": "2026-11-14T12:20:38.167Z",
       "firstAlertAt": null,
       "lastAlertAt": null,
       "escalatedAt": null,
       "alerts": 0,
       "offlineNotified": false,
-      "outChecks": 0,
+      "outChecks": 1,
       "urgentAt": null
     },
     "66:AE:1B:7D:D8:D1:0C:19": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.1
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.7
@@ -11469,16 +11465,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21
         ]
       ],
       "shop": "Great Moor - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21,
       "humidity": 34.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -11491,10 +11491,6 @@
     "4D:68:18:1F:68:20:8C:4F": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.5
@@ -11894,16 +11890,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.1
         ]
       ],
       "shop": "Droylsden - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21,
-      "humidity": 37,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.1,
+      "humidity": 37.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.1,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -11916,10 +11916,6 @@
     "1C:80:1B:7D:D8:D0:D5:09": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.8
@@ -12319,16 +12315,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.8
         ]
       ],
       "shop": "Stalybridge - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.6,
-      "humidity": 37.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.6,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.8,
+      "humidity": 37.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.8,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -12341,10 +12341,6 @@
     "E3:5E:1B:7D:D8:D1:08:24": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.3
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.3
@@ -12744,16 +12740,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22
         ]
       ],
       "shop": "Longsight - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.8,
-      "humidity": 36.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22,
+      "humidity": 37,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -12766,10 +12766,6 @@
     "94:72:18:1F:68:12:DC:96": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20
@@ -13169,16 +13165,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.9
         ]
       ],
       "shop": "New Ferry - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.8,
-      "humidity": 36,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.9,
+      "humidity": 36.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.9,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -13191,10 +13191,6 @@
     "35:04:1B:7D:D8:D2:70:CE": {
       "status": "cold",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          16.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           16.9
@@ -13594,15 +13590,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           17.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          17.1
         ]
       ],
       "shop": "Rossmore - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 17.1,
       "humidity": 46.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 17.1,
       "since": "2026-11-13T22:49:43.051Z",
       "firstAlertAt": "2026-11-14T09:05:20.538Z",
@@ -13610,7 +13610,7 @@
       "escalatedAt": null,
       "alerts": 3,
       "offlineNotified": false,
-      "outChecks": 57,
+      "outChecks": 58,
       "urgentAt": null
     },
     "39:91:18:1F:68:11:70:70": {
@@ -14012,7 +14012,7 @@
       "shop": "Lord Street - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 17.4,
       "humidity": 35.6,
       "lastReadingAt": "2026-11-14T08:35:20.247Z",
@@ -14030,10 +14030,6 @@
       "status": "ok",
       "history": [
         [
-          "2026-11-13T12:19:07.981Z",
-          20.1
-        ],
-        [
           "2026-11-13T12:34:08.114Z",
           20.2
         ],
@@ -14432,15 +14428,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.5
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.5
         ]
       ],
       "shop": "Strand - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.5,
       "humidity": 40.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.5,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -14455,10 +14455,6 @@
       "status": "ok",
       "history": [
         [
-          "2026-11-13T12:19:07.981Z",
-          22.3
-        ],
-        [
           "2026-11-13T12:34:08.114Z",
           22.3
         ],
@@ -14857,16 +14853,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.8
         ]
       ],
       "shop": "Hunts Cross - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20,
-      "humidity": 40.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.8,
+      "humidity": 42.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.8,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -14879,10 +14879,6 @@
     "7B:B9:18:1F:68:62:39:11": {
       "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          25.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           25.2
@@ -15282,15 +15278,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           25.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          25.8
         ]
       ],
       "shop": "Albert Road - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 25.8,
       "humidity": 40.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 25.8,
       "since": "2026-11-14T09:05:20.538Z",
       "firstAlertAt": "2026-11-14T09:20:21.029Z",
@@ -15299,15 +15299,11 @@
       "alerts": 3,
       "offlineNotified": false,
       "urgentAt": "2026-11-14T11:20:20.609Z",
-      "outChecks": 14
+      "outChecks": 15
     },
     "5A:CE:18:1F:68:62:14:1D": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.7
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.5
@@ -15707,16 +15703,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.5
         ]
       ],
       "shop": "Fred Street - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22.3,
-      "humidity": 41.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22.3,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.5,
+      "humidity": 41.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.5,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -15729,10 +15729,6 @@
     "67:20:18:1F:68:62:C4:C1": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.4
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.3
@@ -16132,15 +16128,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.7
         ]
       ],
       "shop": "Strand - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 19.7,
       "humidity": 42.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 19.7,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -16154,10 +16154,6 @@
     "52:5A:18:1F:68:62:C4:B6": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.6
@@ -16557,12 +16553,16 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.1
         ]
       ],
       "shop": "Bootle - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -16570,7 +16570,7 @@
       "alerts": 0,
       "tempC": 22.1,
       "humidity": 39.5,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 22.1,
       "since": "2026-11-14T12:05:37.420Z",
       "outChecks": 0,
@@ -16579,10 +16579,6 @@
     "96:C8:18:1F:68:62:64:55": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.3
@@ -16982,15 +16978,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           18.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          18.7
         ]
       ],
       "shop": "Ormskirk - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 18.7,
-      "humidity": 49.1,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 49.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 18.7,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -17002,12 +17002,8 @@
       "urgentAt": null
     },
     "94:FA:18:1F:68:61:D0:0F": {
-      "status": "hot",
+      "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          23.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           23.1
@@ -17407,32 +17403,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           23
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.6
         ]
       ],
       "shop": "New Ferry - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 23,
-      "humidity": 35.5,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 23,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.6,
+      "humidity": 36.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.6,
       "offlineNotified": false,
-      "firstAlertAt": "2026-11-14T11:05:20.591Z",
-      "lastAlertAt": "2026-11-14T12:05:37.420Z",
+      "firstAlertAt": null,
+      "lastAlertAt": null,
       "escalatedAt": null,
-      "alerts": 2,
-      "since": "2026-11-14T10:50:20.336Z",
+      "alerts": 0,
+      "since": "2026-11-14T12:20:38.167Z",
       "outChecks": 0,
       "urgentAt": null
     },
     "62:98:18:1F:68:62:44:53": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.3
@@ -17832,16 +17828,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.9
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.1
         ]
       ],
       "shop": "Bromborough - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.9,
-      "humidity": 48,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.9,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.1,
+      "humidity": 48.5,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.1,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -17854,10 +17854,6 @@
     "CD:5D:18:1F:68:63:5C:6C": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          14
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           12.4
@@ -18257,15 +18253,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.2
         ]
       ],
       "shop": "Rainford - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 21.2,
-      "humidity": 39.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 38.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 21.2,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -18280,10 +18280,6 @@
       "status": "ok",
       "history": [
         [
-          "2026-11-13T12:19:07.981Z",
-          20.8
-        ],
-        [
           "2026-11-13T12:34:08.114Z",
           20.8
         ],
@@ -18682,15 +18678,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20
         ]
       ],
       "shop": "Billinge - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20,
       "humidity": 42.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20,
       "since": "2026-11-14T09:50:20.981Z",
       "firstAlertAt": null,
@@ -18705,10 +18705,6 @@
       "status": "ok",
       "history": [
         [
-          "2026-11-13T12:19:07.981Z",
-          21.1
-        ],
-        [
           "2026-11-13T12:34:08.114Z",
           21.1
         ],
@@ -19107,15 +19103,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.5
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.5
         ]
       ],
       "shop": "Westbrook - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 22.5,
       "humidity": 33.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 22.5,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -19129,10 +19129,6 @@
     "6C:22:18:1F:68:61:E8:BF": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.4
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.2
@@ -19532,15 +19528,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.2
         ]
       ],
       "shop": "Sale Carpets - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 22.2,
-      "humidity": 39.3,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 38.9,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 22.2,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -19554,10 +19554,6 @@
     "E1:70:18:1F:68:62:18:B6": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           23
@@ -19957,15 +19953,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.3
         ]
       ],
       "shop": "Sale Moor - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.3,
-      "humidity": 36.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 37.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.3,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -19979,10 +19979,6 @@
     "99:04:18:1F:68:63:98:65": {
       "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          24.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           24.2
@@ -20382,32 +20378,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           23.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          24.3
         ]
       ],
       "shop": "Wilmslow Road - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 23.1,
-      "humidity": 34.8,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 23.1,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 24.3,
+      "humidity": 34.4,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 24.3,
       "since": "2026-11-14T11:20:20.609Z",
       "firstAlertAt": "2026-11-14T11:20:38.091Z",
-      "lastAlertAt": "2026-11-14T11:20:38.091Z",
+      "lastAlertAt": "2026-11-14T12:20:38.167Z",
       "escalatedAt": null,
-      "alerts": 1,
+      "alerts": 2,
       "offlineNotified": false,
-      "outChecks": 5,
+      "outChecks": 6,
       "urgentAt": null
     },
     "39:40:18:1F:68:63:14:7A": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.8
@@ -20807,16 +20803,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           18.6
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          18.8
         ]
       ],
       "shop": "Heywood - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 18.6,
-      "humidity": 43.8,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 18.6,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 18.8,
+      "humidity": 44.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 18.8,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -20829,10 +20829,6 @@
     "9E:98:18:1F:68:81:E0:D6": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.2
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.5
@@ -21232,16 +21228,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.4
         ]
       ],
       "shop": "Stalybridge - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.2,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.4,
       "humidity": 42.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.4,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -21254,10 +21254,6 @@
     "40:52:18:1F:68:62:ED:14": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.1
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.3
@@ -21657,16 +21653,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.1
         ]
       ],
       "shop": "Lancs Road - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20,
-      "humidity": 49.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.1,
+      "humidity": 50.1,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.1,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -21679,10 +21679,6 @@
     "64:90:18:1F:68:61:68:87": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21
@@ -22082,15 +22078,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.7
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.7
         ]
       ],
       "shop": "Orchard Street - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.7,
-      "humidity": 37.8,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 39.3,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.7,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -22104,10 +22104,6 @@
     "49:A4:18:1F:68:62:44:08": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          24.5
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           24.5
@@ -22507,15 +22503,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.8
         ]
       ],
       "shop": "Claughton - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 19.8,
-      "humidity": 48,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 47.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 19.8,
       "since": "2026-11-14T10:35:20.735Z",
       "firstAlertAt": null,
@@ -22529,10 +22529,6 @@
     "87:ED:18:1F:68:61:74:52": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.1
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.2
@@ -22932,16 +22928,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.1
         ]
       ],
       "shop": "Woodchurch - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22,
-      "humidity": 43.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.1,
+      "humidity": 44.6,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.1,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -22954,10 +22954,6 @@
     "27:2B:18:1F:68:71:18:20": {
       "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.4
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.5
@@ -23357,32 +23353,32 @@
         [
           "2026-11-14T12:05:37.420Z",
           23.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          23.3
         ]
       ],
       "shop": "Borough Road - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 23.3,
-      "humidity": 36.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 36.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 23.3,
       "offlineNotified": false,
-      "firstAlertAt": null,
-      "lastAlertAt": null,
+      "firstAlertAt": "2026-11-14T12:20:38.167Z",
+      "lastAlertAt": "2026-11-14T12:20:38.167Z",
       "escalatedAt": null,
-      "alerts": 0,
+      "alerts": 1,
       "since": "2026-11-14T12:05:37.420Z",
-      "outChecks": 1,
+      "outChecks": 2,
       "urgentAt": null
     },
     "16:4D:18:1F:68:62:F4:40": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.1
@@ -23782,16 +23778,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.4
         ]
       ],
       "shop": "Northgate - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.1,
-      "humidity": 40.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.1,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 20.4,
+      "humidity": 40.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 20.4,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -24204,7 +24204,7 @@
       "shop": "Great Moor - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 11.8,
       "humidity": 37.5,
       "lastReadingAt": "2026-11-13T07:18:51.899Z",
@@ -24389,7 +24389,7 @@
       "shop": "West Kirby - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": true,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -24399,10 +24399,6 @@
     "F9:87:18:1F:68:61:80:88": {
       "status": "hot",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.4
@@ -24802,15 +24798,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           23.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          23.3
         ]
       ],
       "shop": "Greasby - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 23.3,
       "humidity": 39.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 23.3,
       "since": "2026-11-14T11:35:37.452Z",
       "firstAlertAt": "2026-11-14T11:50:38.269Z",
@@ -24819,7 +24819,7 @@
       "alerts": 1,
       "offlineNotified": false,
       "urgentAt": null,
-      "outChecks": 3
+      "outChecks": 4
     },
     "09:27:18:1F:68:62:95:12": {
       "status": "offline",
@@ -24827,7 +24827,7 @@
       "shop": "Lord Street - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": true,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -24837,10 +24837,6 @@
     "39:37:18:1F:68:62:BC:7A": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.9
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.8
@@ -25240,15 +25236,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.1
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.1
         ]
       ],
       "shop": "Cheetham Hill - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.1,
-      "humidity": 44.1,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 43.9,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.1,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -25262,10 +25262,6 @@
     "17:D9:18:1F:68:61:90:A7": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          23.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           24.3
@@ -25665,16 +25661,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.3
         ]
       ],
       "shop": "Crumpsall - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22.2,
-      "humidity": 33.3,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22.2,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.3,
+      "humidity": 33.2,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.3,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -25687,10 +25687,6 @@
     "99:00:18:1F:68:63:1C:F4": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          23.7
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           23.7
@@ -26090,15 +26086,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.4
         ]
       ],
       "shop": "Rossmore - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 22.4,
       "humidity": 39.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 22.4,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -26112,10 +26112,6 @@
     "48:54:18:1F:68:63:0C:DC": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           22.8
@@ -26515,16 +26511,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           22.8
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          22.9
         ]
       ],
       "shop": "Longsight - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 22.8,
-      "humidity": 37.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 22.8,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 22.9,
+      "humidity": 38.4,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 22.9,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -26537,10 +26537,6 @@
     "9B:E0:18:1F:68:62:F4:51": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          22.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           23.3
@@ -26940,15 +26936,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.2
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.2
         ]
       ],
       "shop": "Eastham - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 21.2,
       "humidity": 37.9,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 21.2,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -26962,10 +26962,6 @@
     "B3:8D:18:1F:68:62:4C:BA": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          26.3
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           24.9
@@ -27365,16 +27361,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.5
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.2
         ]
       ],
       "shop": "Droylsden - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 20.5,
-      "humidity": 37.6,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 20.5,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.2,
+      "humidity": 38,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.2,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -27387,10 +27387,6 @@
     "BD:DC:3F:9D:09:12:44:7B": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21.8
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.9
@@ -27790,15 +27786,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.4
         ]
       ],
       "shop": "Orchard Street - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 19.4,
-      "humidity": 43,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 42.7,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 19.4,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -27812,10 +27812,6 @@
     "76:2A:3F:9D:08:E3:4C:87": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          20.3
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           20.6
@@ -28215,16 +28211,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           19.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          19.2
         ]
       ],
       "shop": "Birkdale - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 19.4,
-      "humidity": 43.2,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 19.4,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 19.2,
+      "humidity": 43.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 19.2,
       "since": "2026-11-14T09:05:20.538Z",
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -28237,10 +28237,6 @@
     "E5:74:18:1F:68:63:0C:E7": {
       "status": "cold",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          17.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           17.7
@@ -28640,23 +28636,27 @@
         [
           "2026-11-14T12:05:37.420Z",
           15
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          15.1
         ]
       ],
       "shop": "Fearnhead - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 15,
-      "humidity": 50.7,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 15,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 15.1,
+      "humidity": 51.3,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 15.1,
       "offlineNotified": false,
       "firstAlertAt": "2026-11-14T09:05:20.538Z",
       "lastAlertAt": "2026-11-14T11:20:38.091Z",
       "escalatedAt": null,
       "alerts": 3,
       "since": "2026-11-13T22:19:42.707Z",
-      "outChecks": 59,
+      "outChecks": 60,
       "urgentAt": "2026-11-14T11:05:20.591Z"
     },
     "EF:40:18:CE:B9:73:1C:6E": {
@@ -28665,7 +28665,7 @@
       "shop": "Westbrook - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "offlineNotified": true,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -28675,10 +28675,6 @@
     "91:19:18:1F:68:22:D0:90": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.6
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.6
@@ -29078,15 +29074,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.4
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.4
         ]
       ],
       "shop": "Garston - Customer area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.4,
       "humidity": 39.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.4,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -29100,10 +29100,6 @@
     "C3:18:18:CE:B9:71:88:F0": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          21
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           21.1
@@ -29503,16 +29499,20 @@
         [
           "2026-11-14T12:05:37.420Z",
           21.3
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          21.4
         ]
       ],
       "shop": "Garston - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
-      "tempC": 21.3,
-      "humidity": 37.4,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
-      "lastOpenTemp": 21.3,
+      "checkedAt": "2026-11-14T12:20:38.167Z",
+      "tempC": 21.4,
+      "humidity": 37.8,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
+      "lastOpenTemp": 21.4,
       "offlineNotified": false,
       "firstAlertAt": null,
       "lastAlertAt": null,
@@ -29524,10 +29524,6 @@
     "41:2D:18:CE:B9:71:21:04": {
       "status": "ok",
       "history": [
-        [
-          "2026-11-13T12:19:07.981Z",
-          19.4
-        ],
         [
           "2026-11-13T12:34:08.114Z",
           19.5
@@ -29927,15 +29923,19 @@
         [
           "2026-11-14T12:05:37.420Z",
           20.5
+        ],
+        [
+          "2026-11-14T12:20:38.167Z",
+          20.5
         ]
       ],
       "shop": "UpHolland - Staff area",
       "area": "Shops",
       "mapped": true,
-      "checkedAt": "2026-11-14T12:05:37.420Z",
+      "checkedAt": "2026-11-14T12:20:38.167Z",
       "tempC": 20.5,
-      "humidity": 38.1,
-      "lastReadingAt": "2026-11-14T12:05:37.420Z",
+      "humidity": 37.4,
+      "lastReadingAt": "2026-11-14T12:20:38.167Z",
       "lastOpenTemp": 20.5,
       "offlineNotified": false,
       "firstAlertAt": null,
@@ -29947,7 +29947,7 @@
       "urgentAt": null
     }
   },
-  "updatedAt": "2026-11-14T12:05:37.420Z",
+  "updatedAt": "2026-11-14T12:20:38.167Z",
   "shopsOpen": true,
   "comfort": {
     "min": 18,
@@ -29955,9 +29955,9 @@
   },
   "today": {
     "date": "2026-11-14",
-    "alerts": 39,
-    "reminders": 15,
-    "recovered": 31,
+    "alerts": 40,
+    "reminders": 17,
+    "recovered": 32,
     "urgent": 2,
     "shops": [
       "Hunts Cross",
