@@ -88,5 +88,5 @@ The key was shared in a chat. Request a new one in the Govee Home app (Profile >
 - No "still too cold/warm" reminder while the temperature is already moving the right way (0.5°C or more since the last message).
 - "Back in range" is only sent after a too-cold alert (turn the heating down), or after a too-warm alert from May to September (air con off).
 - Shops listed under `maintenance` in config.json get no shop alerts; they appear in the managers' summaries until removed.
-- Weekly league table to managers every Friday at 17:00: best shops, quickest and slowest to respond, most time above 23°C, most improved, paused shops and outstanding actions (`managerActions` in config.json).
+- Weekly league table to Will only (slack.leagueRecipient) every Friday at 17:00: best shops, quickest and slowest to respond, most time above 23°C, most improved, paused shops and outstanding actions (`managerActions` in config.json).
 - data/stats-seed.json starts the league with the tallies from 10 Nov onwards.

@@ -528,10 +528,10 @@ async function main() {
     }
   }
 
-  // weekly league table to managers on Fridays
+  // weekly league table on Fridays, to slack.leagueRecipient only (Will) - he decides whether to share it
   const weekday = new Intl.DateTimeFormat('en-GB', { timeZone: CONFIG.timezone, weekday: 'short' }).format(NOW);
   if (weekday === (process.env.LEAGUE_DAY || CONFIG.leagueDay || 'Fri') && localMinutes(NOW) >= hm(CONFIG.leagueTime || '17:00') && alertsOn && state.leagueSent !== today) {
-    if (await slack(CONFIG.slack.escalationChannel, buildLeague(state))) { state.leagueSent = today; sent++; }
+    if (await slack(CONFIG.slack.leagueRecipient || CONFIG.slack.escalationChannel, buildLeague(state))) { state.leagueSent = today; sent++; }
   }
 
   // finalise the overnight report once the check window has passed (or shops reopen)
