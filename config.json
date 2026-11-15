@@ -271,5 +271,16 @@
   },
   "ignoreSensors": [
     "Test PA 1"
-  ]
+  ],
+  "maintenance": {
+    "Wilmslow Road": "too warm all day on both sensors - check heating controls and thermostat",
+    "Albert Road": "too warm all day, mainly the staff area - check heating controls and thermostat",
+    "Longsight": "too warm all day on both sensors - check heating controls and thermostat"
+  },
+  "managerActions": [
+    "Fit heating timers to come on about 07:45 and set/cap thermostats at 21\u00b0C in every shop",
+    "Move the Rainford staff-area sensor away from the heater/door"
+  ],
+  "leagueDay": "Fri",
+  "leagueTime": "17:00"
 }

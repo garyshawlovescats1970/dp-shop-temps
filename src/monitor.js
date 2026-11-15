@@ -256,6 +256,82 @@ const msg = {
     `*SENSOR OFFLINE - ${s.shop}*\nNo reading since ${t.lastReadingAt ? fmtTime(t.lastReadingAt) : 'first check'}. Check the sensor batteries and the Govee Wi-Fi gateway.`,
 };
 
+// shops whose alerts are paused while their heating is checked (config.maintenance: {shop: reason})
+const MAINT = CONFIG.maintenance || {};
+const inMaintenance = (shopName) => Boolean(shopName && MAINT[shopName]);
+const areaOf = (t) => (t.shop.split(' - ')[1] === 'Customer area' ? 'Shop floor' : 'Staff area');
+const inCoolingSeason = () => (NIGHT.coolingMonths || [5, 6, 7, 8, 9]).includes(Number(localParts(NOW).month));
+
+// one Slack message per shop, covering both sensors
+function shopMessage(shopName, items) {
+  const out = items.filter((i) => i.kind !== 'recovered');
+  const cold = out.some((i) => i.status === 'cold');
+  const hot = out.some((i) => i.status === 'hot');
+  const allRepeat = out.length && out.every((i) => i.kind === 'repeat');
+  const title = !out.length ? 'BACK IN RANGE'
+    : cold && hot ? 'TEMPERATURE CHECK'
+    : `${allRepeat ? 'STILL ' : ''}TOO ${cold ? 'COLD' : 'WARM'}`;
+  const lines = [`*${title} - ${shopName}*`];
+  for (const i of items) {
+    const word = i.status === 'cold' ? 'too cold' : 'too warm';
+    if (i.kind === 'first') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - ${word}`);
+    if (i.kind === 'repeat') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - still ${word}, ${fmtDuration(i.mins)} since the first alert`);
+    if (i.kind === 'recovered') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - back in range`);
+  }
+  if (cold) lines.push(`*Turn the heating ON and set the thermostat to 21°C. Do not leave it on full.*${out.some((i) => i.kind === 'repeat' && i.status === 'cold') ? ' *Check the doors are closed.*' : ''}`);
+  if (hot) lines.push('*Turn the heating OFF if it is on. If it is still too warm, put the air con on at 21°C.*');
+  if (!cold && items.some((i) => i.kind === 'recovered' && i.prev === 'cold')) lines.push('*Turn the heating DOWN or OFF now. Do not let the shop go above 23°C.*');
+  if (!hot && items.some((i) => i.kind === 'recovered' && i.prev === 'hot')) lines.push('*Switch the air con OFF.*');
+  if (out.some((i) => i.kind === 'first')) lines.push('You will get a message when it is back in range.');
+  return lines.join('\n');
+}
+
+// daily per-shop tallies for the weekly league table (kept for 21 days)
+function stat(state, shopName, key, add = 1) {
+  if (!shopName) return;
+  const day = (state.stats[localDate(NOW)] ||= {});
+  const r = (day[shopName] ||= { alerts: 0, fixed1h: 0, fixedSlow: 0, hotHrs: 0 });
+  r[key] += add;
+}
+function weekTotals(state, endDate, days) {
+  const tot = {};
+  for (let i = 0; i < days; i++) {
+    const d = localDate(new Date(endDate.getTime() - i * 864e5));
+    for (const [shop, r] of Object.entries(state.stats[d] || {})) {
+      const t = (tot[shop] ||= { alerts: 0, fixed1h: 0, fixedSlow: 0, hotHrs: 0 });
+      for (const k of Object.keys(t)) t[k] += r[k] || 0;
+    }
+  }
+  return tot;
+}
+function buildLeague(state) {
+  const now = weekTotals(state, NOW, 7);
+  const before = weekTotals(state, new Date(NOW.getTime() - 7 * 864e5), 7);
+  const shops = CONFIG.shops.map((x) => x.shop).filter((n) => !inMaintenance(n));
+  const get = (tot, n) => tot[n] || { alerts: 0, fixed1h: 0, fixedSlow: 0, hotHrs: 0 };
+  const pct = (r) => (r.fixed1h + r.fixedSlow ? Math.round((100 * r.fixed1h) / (r.fixed1h + r.fixedSlow)) : null);
+  const sum = (tot) => Object.values(tot).reduce((a, r) => a + r.alerts, 0);
+  const L = [`*WEEKLY TEMPERATURE LEAGUE - week to ${new Intl.DateTimeFormat('en-GB', { timeZone: CONFIG.timezone, weekday: 'short', day: 'numeric', month: 'short' }).format(NOW)}*`,
+    `Last 7 days: ${sum(now)} alerts (previous 7 days: ${sum(before)}).`];
+  const best = shops.map((n) => [n, get(now, n)]).sort((a, b) => a[1].alerts - b[1].alerts || a[1].hotHrs - b[1].hotHrs).slice(0, 5);
+  L.push('\n*Best shops (fewest alerts):*', ...best.map(([n, r], i) => `${i + 1}. ${n} - ${r.alerts} alert${r.alerts === 1 ? '' : 's'}`));
+  const judged = shops.map((n) => [n, get(now, n)]).filter(([, r]) => r.fixed1h + r.fixedSlow >= 3);
+  const quick = [...judged].sort((a, b) => pct(b[1]) - pct(a[1])).slice(0, 5);
+  const slow = [...judged].sort((a, b) => pct(a[1]) - pct(b[1])).slice(0, 5);
+  if (quick.length) L.push('\n*Quickest to respond* (fixed within 1 hour):', ...quick.map(([n, r]) => `- ${n}: ${pct(r)}% of ${r.fixed1h + r.fixedSlow}`));
+  if (slow.length) L.push('\n*Slowest to respond* (fixed within 1 hour):', ...slow.map(([n, r]) => `- ${n}: ${pct(r)}% of ${r.fixed1h + r.fixedSlow}`));
+  const hotList = shops.map((n) => [n, get(now, n)]).filter(([, r]) => r.hotHrs >= 1).sort((a, b) => b[1].hotHrs - a[1].hotHrs).slice(0, 5);
+  if (hotList.length) L.push('\n*Most time above 23°C* (sensor-hours while open):', ...hotList.map(([n, r]) => `- ${n}: ${r.hotHrs.toFixed(1)} hrs`));
+  const score = (r) => r.alerts + r.hotHrs;
+  const improved = shops.filter((n) => before[n]).map((n) => [n, score(get(before, n)) - score(get(now, n)), get(before, n), get(now, n)])
+    .filter(([, d]) => d > 0).sort((a, b) => b[1] - a[1]).slice(0, 3);
+  if (improved.length) L.push('\n*Most improved on last week:*', ...improved.map(([n, , b, a]) => `- ${n}: ${b.alerts} -> ${a.alerts} alerts, ${b.hotHrs.toFixed(1)} -> ${a.hotHrs.toFixed(1)} hrs above 23°C`));
+  const m = Object.entries(MAINT);
+  if (m.length) L.push('\n*Alerts paused - needs maintenance:*', ...m.map(([n, why]) => `- ${n}: ${why}`));
+  if ((CONFIG.managerActions || []).length) L.push('\n*Outstanding actions:*', ...CONFIG.managerActions.map((a) => `- ${a}`));
+  return L.join('\n');
+}
+
 // manager summary at set times: who has been out of range 2+ hours, offline sensors, today's totals
 function buildDigest(state, slot) {
   const devs = Object.values(state.devices).filter((t) => t.mapped !== false);
@@ -272,6 +348,12 @@ function buildDigest(state, slot) {
     lines.push(`\n*Sensors offline (${off.length}):*`);
     for (const t of off) lines.push(`- ${t.shop}: ${t.lastReadingAt && localDate(t.lastReadingAt) === localDate(NOW) ? 'no reading since ' + fmtTime(t.lastReadingAt) : 'not reporting (check batteries / Wi-Fi gateway)'}`);
   }
+  const paused = Object.keys(MAINT).map((n) => {
+    const temps = devs.filter((t) => t.shop.startsWith(n + ' - ') && t.status !== 'offline' && t.tempC != null).map((t) => t.tempC);
+    return `${n}${temps.length ? ' (' + Math.max(...temps).toFixed(1) + '°C)' : ''}`;
+  });
+  if (paused.length) lines.push(`
+*Alerts paused - needs maintenance:* ${paused.join(', ')}`);
   return lines.join('\n');
 }
 
@@ -324,6 +406,11 @@ async function main() {
   const alertsOn = inAlertHours(NOW);
   const today = localDate(NOW);
   if (!state.today || state.today.date !== today) state.today = { date: today, alerts: 0, reminders: 0, recovered: 0, urgent: 0, shops: [] };
+  if (!state.stats) {
+    try { state.stats = JSON.parse(await fs.readFile(path.join(ROOT, 'data', 'stats-seed.json'), 'utf8')).stats; } catch { state.stats = {}; }
+  }
+  for (const d of Object.keys(state.stats)) if (minsBetween(d + 'T12:00:00Z', NOW) > 21 * 1440) delete state.stats[d];
+  const intents = [];
   const count = (key, shop) => { state.today[key]++; if (shop && !state.today.shops.includes(shop)) state.today.shops.push(shop); };
   const devices = MOCK ? mockDevices() : await listThermometers();
   const readings = await mapLimit(devices, 4, (d) => (MOCK ? mockRead(d, state.devices[d.device]) : readDevice(d)));
@@ -372,6 +459,7 @@ async function main() {
       if (!t.night) t.night = { closedAt: nowIso, closeTemp: t.lastOpenTemp ?? temp, readings: [] };
       t.night.readings.push([nowIso, temp]);
     }
+    if (open && s.mapped && temp > MAX) stat(state, s.shopName, 'hotHrs', 0.25);
     t.history = [...(t.history || []), [nowIso, temp]].filter(([ts]) => minsBetween(ts, NOW) <= HISTORY_HOURS * 60);
 
     const wasOut = prev === 'cold' || prev === 'hot';
@@ -388,15 +476,19 @@ async function main() {
       t.status = status;
     }
 
-    if (isOut && alertsOn && s.mapped) {
+    const paused = inMaintenance(s.shopName);
+    if (isOut && alertsOn && s.mapped && !paused) {
       // first alert only when actually outside the range, not while hovering just inside it
       if (!t.lastAlertAt && (temp < MIN || temp > MAX) && t.outChecks >= (CONFIG.confirmChecks || 2)) {
-        if (await slack(s.channel, msg.first(s, t))) { t.firstAlertAt = t.lastAlertAt = nowIso; t.alerts = 1; sent++; count('alerts', s.shopName); }
+        intents.push({ kind: 'first', t, s, status: t.status, temp, area: areaOf(t) });
       } else if (t.lastAlertAt && t.alerts < (CONFIG.maxShopAlerts || 3) && minsBetween(t.lastAlertAt, NOW) >= CONFIG.realertAfterMinutes) {
-        if (await slack(s.channel, msg.repeat(s, t, alertMins(t, NOW)))) { t.lastAlertAt = nowIso; t.alerts++; sent++; count('reminders'); }
+        // no reminder while the temperature is already moving the right way (0.5°C or more since the last message)
+        const base = t.lastAlertTemp ?? temp;
+        const improving = t.status === 'cold' ? temp >= base + 0.5 : temp <= base - 0.5;
+        if (!improving) intents.push({ kind: 'repeat', t, s, status: t.status, temp, area: areaOf(t), mins: alertMins(t, NOW) });
       }
       // managers only hear straight away about serious cases; everything else is in the summary
-      const serious = temp < URGENT_LOW || temp > URGENT_HIGH;
+      const serious = temp < URGENT_LOW || temp > URGENT_HIGH; // paused shops never reach here
       if (serious && t.firstAlertAt && !t.urgentAt && alertMins(t, NOW) >= CONFIG.escalateAfterMinutes) {
         if (await slack(CONFIG.slack.escalationChannel, msg.urgent(s, t, alertMins(t, NOW)))) { t.urgentAt = nowIso; sent++; count('urgent'); }
       }
@@ -405,12 +497,41 @@ async function main() {
     if (!isOut && wasOut) {
       // only tell the shop to switch off if they were told to switch on
       // still sent after alert hours while the shop is open, so heating told on is told off
-      if (t.firstAlertAt && (alertsOn || open) && s.mapped) { if (await slack(s.channel, msg.recovered(s, t, prev))) { sent++; count('recovered'); } }
+      if (t.firstAlertAt && s.mapped) stat(state, s.shopName, alertMins(t, NOW) <= 60 ? 'fixed1h' : 'fixedSlow');
+      // "back in range" only where there is something to turn down: heating after a cold alert,
+      // or air con after a warm alert in the cooling season
+      if (t.firstAlertAt && (alertsOn || open) && s.mapped && !paused && (prev === 'cold' || inCoolingSeason())) {
+        intents.push({ kind: 'recovered', t, s, prev, temp, area: areaOf(t) });
+      }
       Object.assign(t, { since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, urgentAt: null, alerts: 0 });
     }
     if (!isOut && prev === 'offline') t.since = nowIso;
     t.offlineNotified = false;
     state.devices[d.device] = t;
+  }
+
+  // send one message per shop for everything found this check
+  const groups = new Map();
+  for (const i of intents) {
+    const key = i.s.channel;
+    if (!groups.has(key)) groups.set(key, { shopName: i.s.shopName, items: [] });
+    groups.get(key).items.push(i);
+  }
+  for (const [channel, g] of groups) {
+    g.items.sort((a, b) => a.area.localeCompare(b.area));
+    if (!(await slack(channel, shopMessage(g.shopName, g.items)))) continue;
+    sent++;
+    for (const i of g.items) {
+      if (i.kind === 'first') { Object.assign(i.t, { firstAlertAt: nowIso, lastAlertAt: nowIso, alerts: 1, lastAlertTemp: i.temp }); count('alerts', g.shopName); stat(state, g.shopName, 'alerts'); }
+      if (i.kind === 'repeat') { Object.assign(i.t, { lastAlertAt: nowIso, alerts: i.t.alerts + 1, lastAlertTemp: i.temp }); count('reminders'); }
+      if (i.kind === 'recovered') count('recovered');
+    }
+  }
+
+  // weekly league table to managers on Fridays
+  const weekday = new Intl.DateTimeFormat('en-GB', { timeZone: CONFIG.timezone, weekday: 'short' }).format(NOW);
+  if (weekday === (process.env.LEAGUE_DAY || CONFIG.leagueDay || 'Fri') && localMinutes(NOW) >= hm(CONFIG.leagueTime || '17:00') && alertsOn && state.leagueSent !== today) {
+    if (await slack(CONFIG.slack.escalationChannel, buildLeague(state))) { state.leagueSent = today; sent++; }
   }
 
   // finalise the overnight report once the check window has passed (or shops reopen)

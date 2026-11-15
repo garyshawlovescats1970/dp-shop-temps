@@ -1,0 +1,953 @@
+{
+ "note": "Per-shop daily tallies rebuilt from the saved checks since 10 Nov, used once to start the weekly league table.",
+ "stats": {
+  "2026-11-10": {
+   "Fred Street": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.5
+   },
+   "Albert Road": {
+    "alerts": 6,
+    "fixed1h": 0,
+    "fixedSlow": 4,
+    "hotHrs": 7.0
+   },
+   "Eastham": {
+    "alerts": 4,
+    "fixed1h": 2,
+    "fixedSlow": 2,
+    "hotHrs": 4.25
+   },
+   "Cheetham Hill": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Sale Moor": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Greasby": {
+    "alerts": 4,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 2.75
+   },
+   "Borough Road": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 9.5
+   },
+   "Wilmslow Road": {
+    "alerts": 5,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 9.0
+   },
+   "Rossmore": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 3.75
+   },
+   "Billinge": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 2.5
+   },
+   "Claughton": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.5
+   },
+   "Birkdale": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.5
+   },
+   "Longsight": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 17.25
+   },
+   "Rainford": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 8.25
+   },
+   "Crumpsall": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 2.25
+   },
+   "Droylsden": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Fearnhead": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 3.75
+   },
+   "Lord Street": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Northgate": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Westbrook": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Great Moor": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.75
+   },
+   "Woodchurch": {
+    "alerts": 4,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 4.5
+   },
+   "UpHolland": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.25
+   },
+   "Garston": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.5
+   }
+  },
+  "2026-11-11": {
+   "Woodchurch": {
+    "alerts": 5,
+    "fixed1h": 2,
+    "fixedSlow": 3,
+    "hotHrs": 7.0
+   },
+   "Longsight": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 18.75
+   },
+   "Billinge": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Ormskirk": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "West Kirby": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Sale Carpets": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Eastham": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Cheetham Hill": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 0.5
+   },
+   "Crumpsall": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 0.25
+   },
+   "Fearnhead": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 6.5
+   },
+   "Heywood": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 1.5
+   },
+   "Rainford": {
+    "alerts": 4,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 0.25
+   },
+   "Sale Moor": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.75
+   },
+   "Northgate": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Greasby": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 5.25
+   },
+   "Borough Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 12.5
+   },
+   "Droylsden": {
+    "alerts": 5,
+    "fixed1h": 1,
+    "fixedSlow": 4,
+    "hotHrs": 5.75
+   },
+   "New Ferry": {
+    "alerts": 3,
+    "fixed1h": 3,
+    "fixedSlow": 0,
+    "hotHrs": 0.75
+   },
+   "Rossmore": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Strand": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Hunts Cross": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 1.25
+   },
+   "Claughton": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Great Moor": {
+    "alerts": 7,
+    "fixed1h": 5,
+    "fixedSlow": 2,
+    "hotHrs": 0.75
+   },
+   "Birkdale": {
+    "alerts": 5,
+    "fixed1h": 4,
+    "fixedSlow": 1,
+    "hotHrs": 0.75
+   },
+   "UpHolland": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 1.5
+   },
+   "Albert Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 13.5
+   },
+   "Fred Street": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.75
+   },
+   "Wilmslow Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 0,
+    "hotHrs": 22.0
+   },
+   "Bromborough": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Bootle": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.25
+   }
+  },
+  "2026-11-12": {
+   "Woodchurch": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 1.25
+   },
+   "Wilmslow Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 16.75
+   },
+   "Longsight": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 12.0
+   },
+   "Hunts Cross": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "West Kirby": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Sale Carpets": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Eastham": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Cheetham Hill": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Crumpsall": {
+    "alerts": 6,
+    "fixed1h": 4,
+    "fixedSlow": 2,
+    "hotHrs": 6.75
+   },
+   "Fearnhead": {
+    "alerts": 4,
+    "fixed1h": 1,
+    "fixedSlow": 3,
+    "hotHrs": 3.25
+   },
+   "Heywood": {
+    "alerts": 4,
+    "fixed1h": 3,
+    "fixedSlow": 1,
+    "hotHrs": 2.5
+   },
+   "Sale Moor": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Northgate": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Birkdale": {
+    "alerts": 3,
+    "fixed1h": 3,
+    "fixedSlow": 0,
+    "hotHrs": 0.25
+   },
+   "Greasby": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Borough Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 1.75
+   },
+   "Great Moor": {
+    "alerts": 4,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 4.75
+   },
+   "Droylsden": {
+    "alerts": 4,
+    "fixed1h": 3,
+    "fixedSlow": 1,
+    "hotHrs": 3.5
+   },
+   "New Ferry": {
+    "alerts": 3,
+    "fixed1h": 3,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Rossmore": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 5.25
+   },
+   "Lord Street": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.25
+   },
+   "Fred Street": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Strand": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Bootle": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Ormskirk": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Rainford": {
+    "alerts": 4,
+    "fixed1h": 0,
+    "fixedSlow": 5,
+    "hotHrs": 7.5
+   },
+   "Stalybridge": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Claughton": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Garston": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Albert Road": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 3.25
+   },
+   "Westbrook": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "UpHolland": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Billinge": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   }
+  },
+  "2026-11-13": {
+   "Wilmslow Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 22.5
+   },
+   "Rossmore": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 4,
+    "hotHrs": 4.25
+   },
+   "Billinge": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Bootle": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Hunts Cross": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "West Kirby": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Bromborough": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.75
+   },
+   "UpHolland": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Sale Carpets": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Eastham": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 6.25
+   },
+   "Cheetham Hill": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 0.25
+   },
+   "Crumpsall": {
+    "alerts": 6,
+    "fixed1h": 2,
+    "fixedSlow": 4,
+    "hotHrs": 6.0
+   },
+   "Fearnhead": {
+    "alerts": 5,
+    "fixed1h": 0,
+    "fixedSlow": 5,
+    "hotHrs": 3.5
+   },
+   "Rainford": {
+    "alerts": 5,
+    "fixed1h": 0,
+    "fixedSlow": 5,
+    "hotHrs": 6.75
+   },
+   "Sale Moor": {
+    "alerts": 4,
+    "fixed1h": 0,
+    "fixedSlow": 4,
+    "hotHrs": 11.25
+   },
+   "Northgate": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Birkdale": {
+    "alerts": 4,
+    "fixed1h": 3,
+    "fixedSlow": 1,
+    "hotHrs": 0.5
+   },
+   "Greasby": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 4.25
+   },
+   "Borough Road": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Great Moor": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 1.75
+   },
+   "Droylsden": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 2.75
+   },
+   "New Ferry": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 1.5
+   },
+   "Lord Street": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Ormskirk": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Heywood": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Claughton": {
+    "alerts": 3,
+    "fixed1h": 2,
+    "fixedSlow": 1,
+    "hotHrs": 3.25
+   },
+   "Orchard Street": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Garston": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Albert Road": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 13.25
+   },
+   "Woodchurch": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 3.5
+   },
+   "Lancs Road": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Longsight": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 15.25
+   },
+   "Stalybridge": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.5
+   },
+   "Fred Street": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.0
+   },
+   "Westbrook": {
+    "alerts": 0,
+    "fixed1h": 0,
+    "fixedSlow": 0,
+    "hotHrs": 2.25
+   }
+  },
+  "2026-11-14": {
+   "Wilmslow Road": {
+    "alerts": 4,
+    "fixed1h": 0,
+    "fixedSlow": 4,
+    "hotHrs": 18.5
+   },
+   "Longsight": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 14.25
+   },
+   "UpHolland": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Hunts Cross": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Ormskirk": {
+    "alerts": 3,
+    "fixed1h": 1,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Claughton": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "West Kirby": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Sale Carpets": {
+    "alerts": 3,
+    "fixed1h": 3,
+    "fixedSlow": 0,
+    "hotHrs": 1.25
+   },
+   "Eastham": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Cheetham Hill": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Crumpsall": {
+    "alerts": 5,
+    "fixed1h": 5,
+    "fixedSlow": 0,
+    "hotHrs": 1.5
+   },
+   "Fearnhead": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Rainford": {
+    "alerts": 2,
+    "fixed1h": 2,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Sale Moor": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Northgate": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Greasby": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 2.0
+   },
+   "Borough Road": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 0.5
+   },
+   "Rossmore": {
+    "alerts": 3,
+    "fixed1h": 0,
+    "fixedSlow": 3,
+    "hotHrs": 4.25
+   },
+   "Albert Road": {
+    "alerts": 2,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 20.0
+   },
+   "Fred Street": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 2.0
+   },
+   "Billinge": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 1.0
+   },
+   "Heywood": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "Droylsden": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   },
+   "Garston": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.0
+   },
+   "New Ferry": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.5
+   },
+   "Bootle": {
+    "alerts": 2,
+    "fixed1h": 1,
+    "fixedSlow": 1,
+    "hotHrs": 4.5
+   },
+   "Stalybridge": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.75
+   },
+   "Great Moor": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 1.5
+   },
+   "Westbrook": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 1.0
+   },
+   "Lord Street": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 3.0
+   },
+   "Woodchurch": {
+    "alerts": 1,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 5.75
+   },
+   "Birkdale": {
+    "alerts": 1,
+    "fixed1h": 1,
+    "fixedSlow": 0,
+    "hotHrs": 0.75
+   }
+  },
+  "2026-11-15": {
+   "Wilmslow Road": {
+    "alerts": 0,
+    "fixed1h": 0,
+    "fixedSlow": 2,
+    "hotHrs": 0.0
+   },
+   "Longsight": {
+    "alerts": 0,
+    "fixed1h": 0,
+    "fixedSlow": 1,
+    "hotHrs": 0.0
+   }
+  }
+ }
+}
