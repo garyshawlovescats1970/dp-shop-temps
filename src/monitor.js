@@ -326,34 +326,22 @@ function buildLeague(state) {
   const improved = shops.filter((n) => before[n]).map((n) => [n, score(get(before, n)) - score(get(now, n)), get(before, n), get(now, n)])
     .filter(([, d]) => d > 0).sort((a, b) => b[1] - a[1]).slice(0, 3);
   if (improved.length) L.push('\n*Most improved on last week:*', ...improved.map(([n, , b, a]) => `- ${n}: ${b.alerts} -> ${a.alerts} alerts, ${b.hotHrs.toFixed(1)} -> ${a.hotHrs.toFixed(1)} hrs above 23°C`));
-  const m = Object.entries(MAINT);
-  if (m.length) L.push('\n*Alerts paused - needs maintenance:*', ...m.map(([n, why]) => `- ${n}: ${why}`));
   if ((CONFIG.managerActions || []).length) L.push('\n*Outstanding actions:*', ...CONFIG.managerActions.map((a) => `- ${a}`));
   return L.join('\n');
 }
 
-// manager summary at set times: who has been out of range 2+ hours, offline sensors, today's totals
+// manager summary at set times: who has been out of range 2+ hours and today's totals
 function buildDigest(state, slot) {
   const devs = Object.values(state.devices).filter((t) => t.mapped !== false);
   const longOut = devs.filter((t) => (t.status === 'cold' || t.status === 'hot') && t.firstAlertAt &&
       alertMins(t, NOW) >= CONFIG.escalateAfterMinutes)
     .sort((a, b) => a.shop.localeCompare(b.shop));
-  const off = devs.filter((t) => t.status === 'offline').sort((a, b) => a.shop.localeCompare(b.shop));
   const d = state.today || {};
   const lines = [`*TEMPERATURE SUMMARY - ${slot}*`,
     `Today so far: ${d.alerts || 0} alerts to ${(d.shops || []).length} shops, ${d.reminders || 0} reminders, ${d.recovered || 0} back in range.`];
   lines.push(longOut.length ? `\n*Out of range for 2+ hours (${longOut.length}):*` : '\nNo shops out of range for 2+ hours.');
   for (const t of longOut) lines.push(`- ${t.shop}: ${t1(t)}°C ${t.status === 'cold' ? 'too cold' : 'too warm'} since ${fmtTime(t.firstAlertAt)}${t.urgentAt ? ' (urgent alert sent)' : ''}`);
-  if (off.length) {
-    lines.push(`\n*Sensors offline (${off.length}):*`);
-    for (const t of off) lines.push(`- ${t.shop}: ${t.lastReadingAt && localDate(t.lastReadingAt) === localDate(NOW) ? 'no reading since ' + fmtTime(t.lastReadingAt) : 'not reporting (check batteries / Wi-Fi gateway)'}`);
-  }
-  const paused = Object.keys(MAINT).map((n) => {
-    const temps = devs.filter((t) => t.shop.startsWith(n + ' - ') && t.status !== 'offline' && t.tempC != null).map((t) => t.tempC);
-    return `${n}${temps.length ? ' (' + Math.max(...temps).toFixed(1) + '°C)' : ''}`;
-  });
-  if (paused.length) lines.push(`
-*Alerts paused - needs maintenance:* ${paused.join(', ')}`);
+  // offline sensors and paused shops are left out of the summaries and league table at Will's request (20 Nov)
   return lines.join('\n');
 }
 
