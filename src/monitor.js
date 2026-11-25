@@ -248,7 +248,7 @@ const msg = {
     ? `*STILL TOO COLD - ${s.shop}*\nNow *${t1(t)}°C*, ${fmtDuration(mins)} after the first alert.\n*Check the heating is on, set to 21°C, and the doors are closed.*`
     : `*STILL TOO WARM - ${s.shop}*\nNow *${t1(t)}°C*, ${fmtDuration(mins)} after the first alert.\n*Check the heating is OFF. Put the air con on at 21°C if needed.*`,
   recovered: (s, t, prevStatus) => prevStatus === 'cold'
-    ? `*BACK IN RANGE - ${s.shop}*\nNow *${t1(t)}°C*. *Turn the heating DOWN or OFF now. Do not let the shop go above 23°C.*`
+    ? `*BACK IN RANGE - ${s.shop}*\nNow *${t1(t)}°C*. *Keep the thermostat at 21°C. Do not turn it up.*`
     : `*BACK IN RANGE - ${s.shop}*\nNow *${t1(t)}°C*. *Switch the air con OFF.*`,
   urgent: (s, t, mins) =>
     `*URGENT - ${s.shop}*\n*${t1(t)}°C* and still out of range ${fmtDuration(mins)} after the first alert (first told at ${fmtTime(t.firstAlertAt)}). Possible ${t.status === 'cold' ? 'heating' : 'cooling'} fault - please contact the shop.`,
@@ -264,11 +264,12 @@ const inCoolingSeason = () => (NIGHT.coolingMonths || [5, 6, 7, 8, 9]).includes(
 
 // one Slack message per shop, covering both sensors
 function shopMessage(shopName, items) {
-  const out = items.filter((i) => i.kind !== 'recovered');
+  const out = items.filter((i) => i.kind === 'first' || i.kind === 'repeat');
+  const warn = items.some((i) => i.kind === 'warn');
   const cold = out.some((i) => i.status === 'cold');
   const hot = out.some((i) => i.status === 'hot');
   const allRepeat = out.length && out.every((i) => i.kind === 'repeat');
-  const title = !out.length ? 'BACK IN RANGE'
+  const title = !out.length ? (warn ? 'TURN THE HEATING DOWN' : 'BACK IN RANGE')
     : cold && hot ? 'TEMPERATURE CHECK'
     : `${allRepeat ? 'STILL ' : ''}TOO ${cold ? 'COLD' : 'WARM'}`;
   const lines = [`*${title} - ${shopName}*`];
@@ -277,11 +278,13 @@ function shopMessage(shopName, items) {
     if (i.kind === 'first') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - ${word}`);
     if (i.kind === 'repeat') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - still ${word}, ${fmtDuration(i.mins)} since the first alert`);
     if (i.kind === 'recovered') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - back in range`);
+    if (i.kind === 'warn') lines.push(`${i.area}: *${i.temp.toFixed(1)}°C* - rising, nearly too warm`);
   }
   if (cold) lines.push(`*Turn the heating ON and set the thermostat to 21°C. Do not leave it on full.*${out.some((i) => i.kind === 'repeat' && i.status === 'cold') ? ' *Check the doors are closed.*' : ''}`);
   if (hot) lines.push('*Turn the heating OFF if it is on. If it is still too warm, put the air con on at 21°C.*');
-  if (!cold && items.some((i) => i.kind === 'recovered' && i.prev === 'cold')) lines.push('*Turn the heating DOWN or OFF now. Do not let the shop go above 23°C.*');
+  if (!cold && items.some((i) => i.kind === 'recovered' && i.prev === 'cold')) lines.push('*Keep the thermostat at 21°C. Do not turn it up.*');
   if (!hot && items.some((i) => i.kind === 'recovered' && i.prev === 'hot')) lines.push('*Switch the air con OFF.*');
+  if (warn && !hot) lines.push('*Turn the heating DOWN now to keep the shop below 23°C. Set the thermostat to 21°C.*');
   if (out.some((i) => i.kind === 'first')) lines.push('You will get a message when it is back in range.');
   return lines.join('\n');
 }
@@ -341,6 +344,16 @@ function buildDigest(state, slot) {
     `Today so far: ${d.alerts || 0} alerts to ${(d.shops || []).length} shops, ${d.reminders || 0} reminders, ${d.recovered || 0} back in range.`];
   lines.push(longOut.length ? `\n*Out of range for 2+ hours (${longOut.length}):*` : '\nNo shops out of range for 2+ hours.');
   for (const t of longOut) lines.push(`- ${t.shop}: ${t1(t)}°C ${t.status === 'cold' ? 'too cold' : 'too warm'} since ${fmtTime(t.firstAlertAt)}${t.urgentAt ? ' (urgent alert sent)' : ''}`);
+  // shops overheating today, so managers can phone them while it is happening (paused shops left out)
+  const hotToday = Object.entries((state.stats || {})[localDate(NOW)] || {})
+    .filter(([n, r]) => r.hotHrs >= 1 && !inMaintenance(n)).sort((a, b) => b[1].hotHrs - a[1].hotHrs).slice(0, 8);
+  if (hotToday.length) {
+    lines.push(`\n*Overheating today - hours above 23°C so far (${hotToday.length}):*`);
+    for (const [n, r] of hotToday) {
+      const now = devs.filter((t) => t.shop.startsWith(n + ' - ') && t.status !== 'offline' && t.tempC != null).map((t) => t.tempC);
+      lines.push(`- ${n}: ${r.hotHrs.toFixed(1)} hrs${now.length ? `, now ${Math.max(...now).toFixed(1)}°C` : ''}`);
+    }
+  }
   // offline sensors and paused shops are left out of the summaries and league table at Will's request (20 Nov)
   return lines.join('\n');
 }
@@ -399,7 +412,7 @@ async function main() {
   }
   for (const d of Object.keys(state.stats)) if (minsBetween(d + 'T12:00:00Z', NOW) > 21 * 1440) delete state.stats[d];
   const intents = [];
-  const count = (key, shop) => { state.today[key]++; if (shop && !state.today.shops.includes(shop)) state.today.shops.push(shop); };
+  const count = (key, shop) => { state.today[key] = (state.today[key] || 0) + 1; if (shop && !state.today.shops.includes(shop)) state.today.shops.push(shop); };
   const devices = MOCK ? mockDevices() : await listThermometers();
   const readings = await mapLimit(devices, 4, (d) => (MOCK ? mockRead(d, state.devices[d.device]) : readDevice(d)));
   const nowIso = NOW.toISOString();
@@ -433,6 +446,8 @@ async function main() {
     else if (prev === 'hot' && temp > MAX - CONFIG.recoveryMargin) status = 'hot';
     else status = 'ok';
 
+    // last reading, if it was this check's predecessor (used to see if the temperature is rising)
+    const prevTemp = t.lastReadingAt && minsBetween(t.lastReadingAt, NOW) <= 35 ? t.tempC : null;
     Object.assign(t, { tempC: temp, humidity: r.humidity, lastReadingAt: nowIso });
     // sensitivity: count consecutive checks actually outside the range, so a single blip
     // (door opened, sensor near a heater) does not trigger an alert on its own
@@ -493,6 +508,14 @@ async function main() {
       }
       Object.assign(t, { since: nowIso, firstAlertAt: null, lastAlertAt: null, escalatedAt: null, urgentAt: null, alerts: 0 });
     }
+    // early warning: still in range but at/above 22.5°C and rising - tell the shop to turn the heating down
+    // before it goes over 23°C. Once per climb: re-armed when it drops back below 22°C or on a new day.
+    const WARN_AT = CONFIG.warnAbove ?? 22.5;
+    if (t.warnedAt && (temp < WARN_AT - 0.5 || localDate(t.warnedAt) !== today)) t.warnedAt = null;
+    if (status === 'ok' && !wasOut && temp >= WARN_AT && prevTemp != null && temp - prevTemp >= 0.2 &&
+        alertsOn && s.mapped && !paused && !t.warnedAt) {
+      intents.push({ kind: 'warn', t, s, temp, area: areaOf(t) });
+    }
     if (!isOut && prev === 'offline') t.since = nowIso;
     t.offlineNotified = false;
     state.devices[d.device] = t;
@@ -513,6 +536,7 @@ async function main() {
       if (i.kind === 'first') { Object.assign(i.t, { firstAlertAt: nowIso, lastAlertAt: nowIso, alerts: 1, lastAlertTemp: i.temp }); count('alerts', g.shopName); stat(state, g.shopName, 'alerts'); }
       if (i.kind === 'repeat') { Object.assign(i.t, { lastAlertAt: nowIso, alerts: i.t.alerts + 1, lastAlertTemp: i.temp }); count('reminders'); }
       if (i.kind === 'recovered') count('recovered');
+      if (i.kind === 'warn') { i.t.warnedAt = nowIso; count('warnings'); }
     }
   }
 

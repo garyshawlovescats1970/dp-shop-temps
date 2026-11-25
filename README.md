@@ -90,3 +90,8 @@ The key was shared in a chat. Request a new one in the Govee Home app (Profile >
 - Shops listed under `maintenance` in config.json get no shop alerts; they appear in the managers' summaries until removed.
 - Weekly league table to Will only (slack.leagueRecipient) every Friday at 17:00: best shops, quickest and slowest to respond, most time above 23°C, most improved, paused shops and outstanding actions (`managerActions` in config.json).
 - data/stats-seed.json starts the league with the tallies from 10 Nov onwards.
+
+## Changes from 25 Nov 2026
+- Early warning: a sensor at or above 22.5°C (config `warnAbove`) and rising since the last check gets "TURN THE HEATING DOWN" before it goes over 23°C. Once per climb; re-armed when it drops below 22°C or on a new day.
+- Back in range after a too-cold alert now says "Keep the thermostat at 21°C. Do not turn it up." (was "turn the heating down or off").
+- Manager summaries list shops overheating today, with hours above 23°C so far and the current temperature (paused shops left out).
