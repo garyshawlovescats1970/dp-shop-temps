@@ -1,10 +1,24 @@
 {
-  "night": "2026-11-25",
-  "generatedAt": "2026-11-26T05:11:41.992Z",
+  "night": "2026-11-26",
+  "generatedAt": "2026-11-27T05:13:32.522Z",
   "checkWindow": "01:00-05:00",
   "shopsChecked": 70,
-  "estateMedianDrop": 3.6,
-  "flagged": [],
+  "estateMedianDrop": 3.9,
+  "flagged": [
+    {
+      "shop": "Garston - Staff area",
+      "area": "Shops",
+      "closeTemp": 21.2,
+      "minTemp": 19.6,
+      "maxTemp": 20.5,
+      "avgTemp": 20,
+      "drop": 1.6,
+      "rise": -0.7,
+      "flag": "heating",
+      "reason": "held at 19.6°C or above all night, dropped only 1.6°C (most shops dropped 3.9°C)",
+      "nightsFlaggedLast14": 4
+    }
+  ],
   "noData": [
     "Abbots Quay First Floo",
     "Great Moor - Staff area",
@@ -15,705 +29,714 @@
     {
       "shop": "Billinge - Customer area",
       "area": "Shops",
-      "closeTemp": 19.7,
-      "minTemp": 16.6,
-      "maxTemp": 17.6,
-      "avgTemp": 17,
-      "drop": 3.1,
-      "rise": -2.1
+      "closeTemp": 20,
+      "minTemp": 15.4,
+      "maxTemp": 16.8,
+      "avgTemp": 16,
+      "drop": 4.6,
+      "rise": -3.2
     },
     {
       "shop": "Fred Street - Customer area",
       "area": "Shops",
-      "closeTemp": 22.4,
-      "minTemp": 18.1,
-      "maxTemp": 19.4,
-      "avgTemp": 18.7,
-      "drop": 4.3,
-      "rise": -3
+      "closeTemp": 19.5,
+      "minTemp": 15.3,
+      "maxTemp": 16.3,
+      "avgTemp": 15.6,
+      "drop": 4.2,
+      "rise": -3.2
     },
     {
       "shop": "Albert Road - Customer area",
       "area": "Shops",
-      "closeTemp": 22.8,
+      "closeTemp": 22.9,
       "minTemp": 19.5,
-      "maxTemp": 20.3,
-      "avgTemp": 19.9,
-      "drop": 3.3,
-      "rise": -2.5
+      "maxTemp": 20.2,
+      "avgTemp": 19.8,
+      "drop": 3.4,
+      "rise": -2.7
     },
     {
       "shop": "Bootle - Customer area",
       "area": "Shops",
-      "closeTemp": 17.5,
-      "minTemp": 14.1,
+      "closeTemp": 17.7,
+      "minTemp": 13.8,
       "maxTemp": 15.5,
-      "avgTemp": 14.8,
-      "drop": 3.4,
-      "rise": -2
+      "avgTemp": 14.6,
+      "drop": 3.9,
+      "rise": -2.2
     },
     {
       "shop": "Wifi Thermometer",
       "area": "Not a shop sensor",
       "closeTemp": 23.3,
       "minTemp": 20.3,
-      "maxTemp": 21.1,
+      "maxTemp": 21.3,
       "avgTemp": 20.6,
       "drop": 3,
-      "rise": -2.2
+      "rise": -2
     },
     {
       "shop": "Hunts Cross - Customer area",
       "area": "Shops",
-      "closeTemp": 19.9,
-      "minTemp": 16.3,
-      "maxTemp": 17.8,
-      "avgTemp": 16.8,
-      "drop": 3.6,
-      "rise": -2.1
+      "closeTemp": 20.2,
+      "minTemp": 15.9,
+      "maxTemp": 18.2,
+      "avgTemp": 16.5,
+      "drop": 4.3,
+      "rise": -2
     },
     {
       "shop": "Ormskirk - Customer area",
       "area": "Shops",
-      "closeTemp": 17.9,
-      "minTemp": 15.3,
-      "maxTemp": 16.1,
-      "avgTemp": 15.7,
-      "drop": 2.6,
-      "rise": -1.8
+      "closeTemp": 17.7,
+      "minTemp": 15,
+      "maxTemp": 15.7,
+      "avgTemp": 15.3,
+      "drop": 2.7,
+      "rise": -2
     },
     {
       "shop": "Claughton - Customer area",
       "area": "Shops",
-      "closeTemp": 19.9,
-      "minTemp": 16.9,
-      "maxTemp": 18,
-      "avgTemp": 17.4,
-      "drop": 3,
-      "rise": -1.9
+      "closeTemp": 19.1,
+      "minTemp": 16,
+      "maxTemp": 17,
+      "avgTemp": 16.5,
+      "drop": 3.1,
+      "rise": -2.1
     },
     {
       "shop": "West Kirby - Customer area",
       "area": "Shops",
-      "closeTemp": 19.4,
-      "minTemp": 16.3,
-      "maxTemp": 17.4,
-      "avgTemp": 16.8,
-      "drop": 3.1,
-      "rise": -2
+      "closeTemp": 19.1,
+      "minTemp": 15.7,
+      "maxTemp": 16.8,
+      "avgTemp": 16.2,
+      "drop": 3.4,
+      "rise": -2.3
     },
     {
       "shop": "Bromborough - Customer area",
       "area": "Shops",
-      "closeTemp": 20.4,
-      "minTemp": 16.1,
-      "maxTemp": 17.2,
-      "avgTemp": 16.6,
-      "drop": 4.3,
-      "rise": -3.2
+      "closeTemp": 22.2,
+      "minTemp": 16.2,
+      "maxTemp": 17.7,
+      "avgTemp": 16.8,
+      "drop": 6,
+      "rise": -4.5
     },
     {
       "shop": "UpHolland - Customer area",
       "area": "Shops",
-      "closeTemp": 20.6,
-      "minTemp": 17.6,
-      "maxTemp": 18.9,
-      "avgTemp": 18.2,
-      "drop": 3,
-      "rise": -1.7
+      "closeTemp": 20.3,
+      "minTemp": 17.1,
+      "maxTemp": 18.5,
+      "avgTemp": 17.7,
+      "drop": 3.2,
+      "rise": -1.8
     },
     {
       "shop": "Sale Carpets - Customer area",
       "area": "Shops",
-      "closeTemp": 19.5,
-      "minTemp": 14.7,
-      "maxTemp": 16.2,
-      "avgTemp": 15.4,
-      "drop": 4.8,
-      "rise": -3.3
+      "closeTemp": 20,
+      "minTemp": 13.2,
+      "maxTemp": 14.8,
+      "avgTemp": 13.9,
+      "drop": 6.8,
+      "rise": -5.2
     },
     {
       "shop": "Eastham - Customer area",
       "area": "Shops",
-      "closeTemp": 17,
-      "minTemp": 14.3,
-      "maxTemp": 15.2,
-      "avgTemp": 14.7,
-      "drop": 2.7,
-      "rise": -1.8
+      "closeTemp": 16.7,
+      "minTemp": 13.6,
+      "maxTemp": 14.6,
+      "avgTemp": 14,
+      "drop": 3.1,
+      "rise": -2.1
     },
     {
       "shop": "Cheetham Hill - Customer area",
       "area": "Shops",
-      "closeTemp": 21.9,
-      "minTemp": 17.8,
-      "maxTemp": 19.3,
-      "avgTemp": 18.5,
-      "drop": 4.1,
+      "closeTemp": 19.9,
+      "minTemp": 15.5,
+      "maxTemp": 17.3,
+      "avgTemp": 16.3,
+      "drop": 4.4,
       "rise": -2.6
     },
     {
       "shop": "Crumpsall - Customer area",
       "area": "Shops",
-      "closeTemp": 20.3,
-      "minTemp": 15.1,
-      "maxTemp": 17.2,
-      "avgTemp": 16,
+      "closeTemp": 19.5,
+      "minTemp": 14.3,
+      "maxTemp": 16.6,
+      "avgTemp": 15.2,
       "drop": 5.2,
-      "rise": -3.1
+      "rise": -2.9
     },
     {
       "shop": "Fearnhead - Customer area",
       "area": "Shops",
       "closeTemp": 20.7,
       "minTemp": 17.2,
-      "maxTemp": 18.2,
-      "avgTemp": 17.7,
+      "maxTemp": 18,
+      "avgTemp": 17.5,
       "drop": 3.5,
-      "rise": -2.5
+      "rise": -2.7
     },
     {
       "shop": "Heywood - Customer area",
       "area": "Shops",
-      "closeTemp": 19.4,
-      "minTemp": 16,
-      "maxTemp": 17,
-      "avgTemp": 16.5,
-      "drop": 3.4,
-      "rise": -2.4
+      "closeTemp": 18.7,
+      "minTemp": 15.7,
+      "maxTemp": 16.7,
+      "avgTemp": 16.1,
+      "drop": 3,
+      "rise": -2
     },
     {
       "shop": "Rainford - Customer area",
       "area": "Shops",
-      "closeTemp": 16.1,
-      "minTemp": 12.5,
-      "maxTemp": 13.8,
-      "avgTemp": 13.1,
-      "drop": 3.6,
-      "rise": -2.3
+      "closeTemp": 15.8,
+      "minTemp": 11.8,
+      "maxTemp": 13,
+      "avgTemp": 12.3,
+      "drop": 4,
+      "rise": -2.8
     },
     {
       "shop": "Sale Moor - Customer area",
       "area": "Shops",
-      "closeTemp": 20.9,
-      "minTemp": 15.3,
-      "maxTemp": 17.5,
-      "avgTemp": 16.3,
-      "drop": 5.6,
-      "rise": -3.4
+      "closeTemp": 20,
+      "minTemp": 14.6,
+      "maxTemp": 16.2,
+      "avgTemp": 15.3,
+      "drop": 5.4,
+      "rise": -3.8
     },
     {
       "shop": "Northgate - Customer area",
       "area": "Shops",
-      "closeTemp": 17.6,
-      "minTemp": 11.9,
-      "maxTemp": 13.8,
-      "avgTemp": 12.8,
-      "drop": 5.7,
-      "rise": -3.8
+      "closeTemp": 16.7,
+      "minTemp": 11.8,
+      "maxTemp": 13.5,
+      "avgTemp": 12.5,
+      "drop": 4.9,
+      "rise": -3.2
     },
     {
       "shop": "Lancs Road - Customer area",
       "area": "Shops",
-      "closeTemp": 20.4,
-      "minTemp": 17,
-      "maxTemp": 18.1,
-      "avgTemp": 17.5,
-      "drop": 3.4,
-      "rise": -2.3
+      "closeTemp": 21.2,
+      "minTemp": 17.2,
+      "maxTemp": 18.5,
+      "avgTemp": 17.7,
+      "drop": 4,
+      "rise": -2.7
     },
     {
       "shop": "Birkdale - Customer area",
       "area": "Shops",
-      "closeTemp": 21,
-      "minTemp": 17.1,
-      "maxTemp": 18.3,
-      "avgTemp": 17.6,
-      "drop": 3.9,
+      "closeTemp": 20.2,
+      "minTemp": 16.2,
+      "maxTemp": 17.5,
+      "avgTemp": 16.7,
+      "drop": 4,
       "rise": -2.7
     },
     {
       "shop": "Greasby - Customer area",
       "area": "Shops",
-      "closeTemp": 19.4,
-      "minTemp": 15.3,
-      "maxTemp": 16.8,
-      "avgTemp": 15.9,
-      "drop": 4.1,
-      "rise": -2.6
+      "closeTemp": 18.9,
+      "minTemp": 15,
+      "maxTemp": 16.5,
+      "avgTemp": 15.5,
+      "drop": 3.9,
+      "rise": -2.4
     },
     {
       "shop": "Woodchurch - Customer area",
       "area": "Shops",
-      "closeTemp": 22.5,
-      "minTemp": 19.5,
-      "maxTemp": 20.4,
-      "avgTemp": 19.9,
-      "drop": 3,
-      "rise": -2.1
+      "closeTemp": 22.1,
+      "minTemp": 18.9,
+      "maxTemp": 20.1,
+      "avgTemp": 19.4,
+      "drop": 3.2,
+      "rise": -2
     },
     {
       "shop": "Borough Road - Customer area",
       "area": "Shops",
-      "closeTemp": 18.8,
-      "minTemp": 15,
-      "maxTemp": 16,
-      "avgTemp": 15.5,
-      "drop": 3.8,
-      "rise": -2.8
+      "closeTemp": 18.1,
+      "minTemp": 14,
+      "maxTemp": 15,
+      "avgTemp": 14.4,
+      "drop": 4.1,
+      "rise": -3.1
     },
     {
       "shop": "Wilmslow Road - Customer area",
       "area": "Shops",
-      "closeTemp": 25,
-      "minTemp": 20.6,
-      "maxTemp": 22.7,
-      "avgTemp": 21.4,
-      "drop": 4.4,
-      "rise": -2.3
+      "closeTemp": 24.4,
+      "minTemp": 20.4,
+      "maxTemp": 22.6,
+      "avgTemp": 21.2,
+      "drop": 4,
+      "rise": -1.8
     },
     {
       "shop": "Great Moor - Customer area",
       "area": "Shops",
-      "closeTemp": 20.5,
-      "minTemp": 15,
-      "maxTemp": 16.9,
-      "avgTemp": 15.9,
-      "drop": 5.5,
-      "rise": -3.6
+      "closeTemp": 18.9,
+      "minTemp": 14.6,
+      "maxTemp": 16,
+      "avgTemp": 15.2,
+      "drop": 4.3,
+      "rise": -2.9
     },
     {
       "shop": "Droylsden - Customer area",
       "area": "Shops",
-      "closeTemp": 18.6,
-      "minTemp": 14.7,
-      "maxTemp": 16,
+      "closeTemp": 19.5,
+      "minTemp": 14.6,
+      "maxTemp": 16.1,
       "avgTemp": 15.2,
-      "drop": 3.9,
-      "rise": -2.6
+      "drop": 4.9,
+      "rise": -3.4
     },
     {
       "shop": "Stalybridge - Customer area",
       "area": "Shops",
-      "closeTemp": 21.7,
-      "minTemp": 17.2,
-      "maxTemp": 18.7,
-      "avgTemp": 17.9,
+      "closeTemp": 21.3,
+      "minTemp": 16.8,
+      "maxTemp": 18.2,
+      "avgTemp": 17.4,
       "drop": 4.5,
-      "rise": -3
+      "rise": -3.1
     },
     {
       "shop": "Longsight - Customer area",
       "area": "Shops",
-      "closeTemp": 22,
-      "minTemp": 18.7,
-      "maxTemp": 19.9,
-      "avgTemp": 19.3,
-      "drop": 3.3,
-      "rise": -2.1
+      "closeTemp": 21.7,
+      "minTemp": 18.6,
+      "maxTemp": 20.2,
+      "avgTemp": 19.7,
+      "drop": 3.1,
+      "rise": -1.5
     },
     {
       "shop": "New Ferry - Customer area",
       "area": "Shops",
-      "closeTemp": 19,
-      "minTemp": 16.2,
-      "maxTemp": 16.8,
-      "avgTemp": 16.5,
-      "drop": 2.8,
-      "rise": -2.2
+      "closeTemp": 18,
+      "minTemp": 15.6,
+      "maxTemp": 16.2,
+      "avgTemp": 15.9,
+      "drop": 2.4,
+      "rise": -1.8
     },
     {
       "shop": "Rossmore - Customer area",
       "area": "Shops",
-      "closeTemp": 18.1,
-      "minTemp": 15.7,
-      "maxTemp": 16.9,
-      "avgTemp": 16.3,
-      "drop": 2.4,
-      "rise": -1.2
+      "closeTemp": 17.5,
+      "minTemp": 14.9,
+      "maxTemp": 16.1,
+      "avgTemp": 15.5,
+      "drop": 2.6,
+      "rise": -1.4
     },
     {
       "shop": "Lord Street - Customer area",
       "area": "Shops",
-      "closeTemp": 21.7,
-      "minTemp": 17.5,
-      "maxTemp": 19,
-      "avgTemp": 18.2,
-      "drop": 4.2,
-      "rise": -2.7
+      "closeTemp": 22.1,
+      "minTemp": 18.2,
+      "maxTemp": 19.9,
+      "avgTemp": 18.9,
+      "drop": 3.9,
+      "rise": -2.2
     },
     {
       "shop": "Strand - Customer area",
       "area": "Shops",
-      "closeTemp": 20.7,
-      "minTemp": 14.5,
-      "maxTemp": 16.4,
-      "avgTemp": 15.2,
-      "drop": 6.2,
-      "rise": -4.3
+      "closeTemp": 18.1,
+      "minTemp": 13.5,
+      "maxTemp": 15,
+      "avgTemp": 14,
+      "drop": 4.6,
+      "rise": -3.1
     },
     {
       "shop": "Hunts Cross - Staff area",
       "area": "Shops",
-      "closeTemp": 20.7,
-      "minTemp": 15.1,
-      "maxTemp": 16.8,
-      "avgTemp": 15.7,
-      "drop": 5.6,
-      "rise": -3.9
+      "closeTemp": 21.8,
+      "minTemp": 15.7,
+      "maxTemp": 18.5,
+      "avgTemp": 16.5,
+      "drop": 6.1,
+      "rise": -3.3
     },
     {
       "shop": "Albert Road - Staff area",
       "area": "Shops",
-      "closeTemp": 23.3,
-      "minTemp": 19.2,
-      "maxTemp": 19.7,
-      "avgTemp": 19.5,
+      "closeTemp": 23.6,
+      "minTemp": 19.5,
+      "maxTemp": 19.9,
+      "avgTemp": 19.7,
       "drop": 4.1,
-      "rise": -3.6
+      "rise": -3.7
     },
     {
       "shop": "Fred Street - Staff area",
       "area": "Shops",
-      "closeTemp": 23.5,
-      "minTemp": 19,
-      "maxTemp": 20.3,
-      "avgTemp": 19.6,
-      "drop": 4.5,
-      "rise": -3.2
+      "closeTemp": 21.3,
+      "minTemp": 18.4,
+      "maxTemp": 19.5,
+      "avgTemp": 18.9,
+      "drop": 2.9,
+      "rise": -1.8
     },
     {
       "shop": "Strand - Staff area",
       "area": "Shops",
-      "closeTemp": 19.8,
-      "minTemp": 14.6,
-      "maxTemp": 16.3,
-      "avgTemp": 15.4,
-      "drop": 5.2,
-      "rise": -3.5
+      "closeTemp": 17.2,
+      "minTemp": 13.5,
+      "maxTemp": 14.9,
+      "avgTemp": 14.1,
+      "drop": 3.7,
+      "rise": -2.3
     },
     {
       "shop": "Bootle - Staff area",
       "area": "Shops",
-      "closeTemp": 21.9,
-      "minTemp": 15.5,
-      "maxTemp": 17.2,
-      "avgTemp": 16.4,
-      "drop": 6.4,
-      "rise": -4.7
+      "closeTemp": 24,
+      "minTemp": 15.4,
+      "maxTemp": 17.3,
+      "avgTemp": 16.3,
+      "drop": 8.6,
+      "rise": -6.7
     },
     {
       "shop": "Ormskirk - Staff area",
       "area": "Shops",
       "closeTemp": 18.9,
-      "minTemp": 15.9,
-      "maxTemp": 17,
-      "avgTemp": 16.4,
-      "drop": 3,
-      "rise": -1.9
+      "minTemp": 15.7,
+      "maxTemp": 16.8,
+      "avgTemp": 16.2,
+      "drop": 3.2,
+      "rise": -2.1
     },
     {
       "shop": "New Ferry - Staff area",
       "area": "Shops",
-      "closeTemp": 22.5,
-      "minTemp": 17.8,
-      "maxTemp": 18.9,
-      "avgTemp": 18.3,
-      "drop": 4.7,
-      "rise": -3.6
+      "closeTemp": 20.6,
+      "minTemp": 17.1,
+      "maxTemp": 18.1,
+      "avgTemp": 17.5,
+      "drop": 3.5,
+      "rise": -2.5
     },
     {
       "shop": "Bromborough - Staff area",
       "area": "Shops",
-      "closeTemp": 20.5,
+      "closeTemp": 21,
       "minTemp": 17.3,
-      "maxTemp": 18.3,
+      "maxTemp": 18.5,
       "avgTemp": 17.8,
-      "drop": 3.2,
-      "rise": -2.2
+      "drop": 3.7,
+      "rise": -2.5
     },
     {
       "shop": "Rainford - Staff area",
       "area": "Shops",
-      "closeTemp": 19.5,
-      "minTemp": 16.4,
+      "closeTemp": 20,
+      "minTemp": 16.2,
       "maxTemp": 17.7,
-      "avgTemp": 17,
-      "drop": 3.1,
-      "rise": -1.8
+      "avgTemp": 16.9,
+      "drop": 3.8,
+      "rise": -2.3
     },
     {
       "shop": "Billinge - Staff area",
       "area": "Shops",
-      "closeTemp": 20.1,
-      "minTemp": 17,
-      "maxTemp": 18.1,
-      "avgTemp": 17.5,
-      "drop": 3.1,
+      "closeTemp": 20.5,
+      "minTemp": 17.2,
+      "maxTemp": 18.5,
+      "avgTemp": 17.7,
+      "drop": 3.3,
       "rise": -2
     },
     {
       "shop": "Westbrook - Staff area",
       "area": "Shops",
-      "closeTemp": 20.5,
-      "minTemp": 18.6,
-      "maxTemp": 19.2,
-      "avgTemp": 18.8,
-      "drop": 1.9,
-      "rise": -1.3
+      "closeTemp": 21.8,
+      "minTemp": 19.2,
+      "maxTemp": 20.3,
+      "avgTemp": 19.8,
+      "drop": 2.6,
+      "rise": -1.5
     },
     {
       "shop": "Sale Carpets - Staff area",
       "area": "Shops",
-      "closeTemp": 19,
-      "minTemp": 13.3,
-      "maxTemp": 15,
-      "avgTemp": 14.1,
-      "drop": 5.7,
-      "rise": -4
+      "closeTemp": 20.3,
+      "minTemp": 13.9,
+      "maxTemp": 15.6,
+      "avgTemp": 14.6,
+      "drop": 6.4,
+      "rise": -4.7
     },
     {
       "shop": "Sale Moor - Staff area",
       "area": "Shops",
-      "closeTemp": 21.2,
-      "minTemp": 17.8,
-      "maxTemp": 19.2,
-      "avgTemp": 18.5,
-      "drop": 3.4,
-      "rise": -2
+      "closeTemp": 21.6,
+      "minTemp": 17.1,
+      "maxTemp": 18.6,
+      "avgTemp": 17.7,
+      "drop": 4.5,
+      "rise": -3
     },
     {
       "shop": "Wilmslow Road - Staff area",
       "area": "Shops",
-      "closeTemp": 25.1,
-      "minTemp": 20.9,
-      "maxTemp": 22.9,
-      "avgTemp": 21.7,
-      "drop": 4.2,
-      "rise": -2.2
+      "closeTemp": 23.8,
+      "minTemp": 20.6,
+      "maxTemp": 22.3,
+      "avgTemp": 21.3,
+      "drop": 3.2,
+      "rise": -1.5
     },
     {
       "shop": "Heywood - Staff area",
       "area": "Shops",
-      "closeTemp": 19.9,
-      "minTemp": 16.3,
-      "maxTemp": 17.4,
-      "avgTemp": 16.8,
-      "drop": 3.6,
-      "rise": -2.5
+      "closeTemp": 19,
+      "minTemp": 15.6,
+      "maxTemp": 16.7,
+      "avgTemp": 16,
+      "drop": 3.4,
+      "rise": -2.3
     },
     {
       "shop": "Stalybridge - Staff area",
       "area": "Shops",
-      "closeTemp": 21,
-      "minTemp": 15.4,
-      "maxTemp": 17.1,
-      "avgTemp": 16.2,
-      "drop": 5.6,
-      "rise": -3.9
+      "closeTemp": 17.2,
+      "minTemp": 13,
+      "maxTemp": 14.1,
+      "avgTemp": 13.5,
+      "drop": 4.2,
+      "rise": -3.1
     },
     {
       "shop": "Lancs Road - Staff area",
       "area": "Shops",
-      "closeTemp": 19.6,
-      "minTemp": 17,
-      "maxTemp": 17.9,
-      "avgTemp": 17.5,
-      "drop": 2.6,
-      "rise": -1.7
+      "closeTemp": 21.7,
+      "minTemp": 17.1,
+      "maxTemp": 18.2,
+      "avgTemp": 17.6,
+      "drop": 4.6,
+      "rise": -3.5
     },
     {
       "shop": "Orchard Street - Customer area",
       "area": "Shops",
-      "closeTemp": 21.7,
-      "minTemp": 18,
-      "maxTemp": 19.1,
-      "avgTemp": 18.6,
-      "drop": 3.7,
+      "closeTemp": 21.3,
+      "minTemp": 17.7,
+      "maxTemp": 18.7,
+      "avgTemp": 18.1,
+      "drop": 3.6,
       "rise": -2.6
     },
     {
       "shop": "Claughton - Staff area",
       "area": "Shops",
-      "closeTemp": 19.4,
-      "minTemp": 16.4,
-      "maxTemp": 17.3,
-      "avgTemp": 16.8,
-      "drop": 3,
-      "rise": -2.1
+      "closeTemp": 19.9,
+      "minTemp": 16,
+      "maxTemp": 17.1,
+      "avgTemp": 16.5,
+      "drop": 3.9,
+      "rise": -2.8
     },
     {
       "shop": "Woodchurch - Staff area",
       "area": "Shops",
-      "closeTemp": 22.5,
-      "minTemp": 19.9,
-      "maxTemp": 20.8,
-      "avgTemp": 20.3,
-      "drop": 2.6,
-      "rise": -1.7
+      "closeTemp": 22.2,
+      "minTemp": 19.5,
+      "maxTemp": 20.6,
+      "avgTemp": 20,
+      "drop": 2.7,
+      "rise": -1.6
     },
     {
       "shop": "Borough Road - Staff area",
       "area": "Shops",
-      "closeTemp": 22.3,
+      "closeTemp": 23,
       "minTemp": 17.6,
       "maxTemp": 19.1,
-      "avgTemp": 18.3,
-      "drop": 4.7,
-      "rise": -3.2
+      "avgTemp": 18.2,
+      "drop": 5.4,
+      "rise": -3.9
     },
     {
       "shop": "Northgate - Staff area",
       "area": "Shops",
-      "closeTemp": 18.3,
-      "minTemp": 12.9,
-      "maxTemp": 14.6,
-      "avgTemp": 13.7,
-      "drop": 5.4,
-      "rise": -3.7
+      "closeTemp": 17.4,
+      "minTemp": 12.4,
+      "maxTemp": 14.1,
+      "avgTemp": 13.1,
+      "drop": 5,
+      "rise": -3.3
     },
     {
       "shop": "Greasby - Staff area",
       "area": "Shops",
-      "closeTemp": 20.6,
-      "minTemp": 16.1,
-      "maxTemp": 17.7,
-      "avgTemp": 16.7,
-      "drop": 4.5,
+      "closeTemp": 20.4,
+      "minTemp": 15.8,
+      "maxTemp": 17.5,
+      "avgTemp": 16.4,
+      "drop": 4.6,
       "rise": -2.9
     },
     {
       "shop": "Lord Street - Staff area",
       "area": "Shops",
-      "closeTemp": 22.5,
-      "minTemp": 19.5,
+      "closeTemp": 22.9,
+      "minTemp": 19.4,
       "maxTemp": 20.6,
-      "avgTemp": 20,
-      "drop": 3,
-      "rise": -1.9
+      "avgTemp": 19.9,
+      "drop": 3.5,
+      "rise": -2.3
     },
     {
       "shop": "Cheetham Hill - Staff area",
       "area": "Shops",
-      "closeTemp": 23.8,
-      "minTemp": 20.9,
-      "maxTemp": 22.1,
-      "avgTemp": 21.5,
-      "drop": 2.9,
-      "rise": -1.7
+      "closeTemp": 20.7,
+      "minTemp": 15.6,
+      "maxTemp": 17.3,
+      "avgTemp": 16.3,
+      "drop": 5.1,
+      "rise": -3.4
     },
     {
       "shop": "Crumpsall - Staff area",
       "area": "Shops",
-      "closeTemp": 24.2,
-      "minTemp": 16.2,
-      "maxTemp": 18.7,
-      "avgTemp": 17.4,
-      "drop": 8,
-      "rise": -5.5
+      "closeTemp": 20.6,
+      "minTemp": 15.8,
+      "maxTemp": 18,
+      "avgTemp": 16.8,
+      "drop": 4.8,
+      "rise": -2.6
     },
     {
       "shop": "Rossmore - Staff area",
       "area": "Shops",
-      "closeTemp": 19.1,
-      "minTemp": 16.6,
-      "maxTemp": 17.6,
-      "avgTemp": 17.1,
-      "drop": 2.5,
-      "rise": -1.5
+      "closeTemp": 20.1,
+      "minTemp": 16.9,
+      "maxTemp": 18.1,
+      "avgTemp": 17.4,
+      "drop": 3.2,
+      "rise": -2
     },
     {
       "shop": "Longsight - Staff area",
       "area": "Shops",
-      "closeTemp": 23.4,
+      "closeTemp": 23.8,
       "minTemp": 20.3,
-      "maxTemp": 21.6,
-      "avgTemp": 20.9,
-      "drop": 3.1,
-      "rise": -1.8
+      "maxTemp": 21.4,
+      "avgTemp": 20.8,
+      "drop": 3.5,
+      "rise": -2.4
     },
     {
       "shop": "Eastham - Staff area",
       "area": "Shops",
-      "closeTemp": 20.7,
-      "minTemp": 17.8,
-      "maxTemp": 19,
-      "avgTemp": 18.4,
-      "drop": 2.9,
-      "rise": -1.7
+      "closeTemp": 20.1,
+      "minTemp": 16.8,
+      "maxTemp": 18,
+      "avgTemp": 17.3,
+      "drop": 3.3,
+      "rise": -2.1
     },
     {
       "shop": "Droylsden - Staff area",
       "area": "Shops",
-      "closeTemp": 18.8,
-      "minTemp": 13.3,
-      "maxTemp": 15,
-      "avgTemp": 14.1,
-      "drop": 5.5,
-      "rise": -3.8
+      "closeTemp": 19.4,
+      "minTemp": 14,
+      "maxTemp": 15.5,
+      "avgTemp": 14.7,
+      "drop": 5.4,
+      "rise": -3.9
     },
     {
       "shop": "Orchard Street - Staff area",
       "area": "Shops",
-      "closeTemp": 21,
-      "minTemp": 16.5,
-      "maxTemp": 17.9,
-      "avgTemp": 17.1,
-      "drop": 4.5,
-      "rise": -3.1
+      "closeTemp": 19.9,
+      "minTemp": 16.3,
+      "maxTemp": 17.4,
+      "avgTemp": 16.7,
+      "drop": 3.6,
+      "rise": -2.5
     },
     {
       "shop": "Birkdale - Staff area",
       "area": "Shops",
-      "closeTemp": 19.2,
-      "minTemp": 15,
-      "maxTemp": 16.2,
-      "avgTemp": 15.6,
-      "drop": 4.2,
-      "rise": -3
+      "closeTemp": 19.1,
+      "minTemp": 14.7,
+      "maxTemp": 15.9,
+      "avgTemp": 15.2,
+      "drop": 4.4,
+      "rise": -3.2
     },
     {
       "shop": "Fearnhead - Staff area",
       "area": "Shops",
-      "closeTemp": 23.1,
-      "minTemp": 17.3,
-      "maxTemp": 18.8,
-      "avgTemp": 18,
-      "drop": 5.8,
-      "rise": -4.3
+      "closeTemp": 19,
+      "minTemp": 16,
+      "maxTemp": 17.8,
+      "avgTemp": 16.7,
+      "drop": 3,
+      "rise": -1.2
     },
     {
       "shop": "Garston - Customer area",
       "area": "Shops",
-      "closeTemp": 20.2,
-      "minTemp": 17.2,
-      "maxTemp": 18.8,
-      "avgTemp": 17.8,
+      "closeTemp": 19.7,
+      "minTemp": 16.7,
+      "maxTemp": 18.2,
+      "avgTemp": 17.2,
       "drop": 3,
-      "rise": -1.4
+      "rise": -1.5
     },
     {
       "shop": "Garston - Staff area",
       "area": "Shops",
-      "closeTemp": 22.2,
-      "minTemp": 20.2,
-      "maxTemp": 21.1,
-      "avgTemp": 20.7,
-      "drop": 2,
-      "rise": -1.1
+      "closeTemp": 21.2,
+      "minTemp": 19.6,
+      "maxTemp": 20.5,
+      "avgTemp": 20,
+      "drop": 1.6,
+      "rise": -0.7,
+      "flag": "heating",
+      "reason": "held at 19.6°C or above all night, dropped only 1.6°C (most shops dropped 3.9°C)",
+      "nightsFlaggedLast14": 4
     },
     {
       "shop": "UpHolland - Staff area",
       "area": "Shops",
-      "closeTemp": 17.2,
-      "minTemp": 14,
-      "maxTemp": 14.9,
+      "closeTemp": 17.1,
+      "minTemp": 13.9,
+      "maxTemp": 15.3,
       "avgTemp": 14.5,
       "drop": 3.2,
-      "rise": -2.3
+      "rise": -1.8
     }
   ],
   "history": [
+    {
+      "night": "2026-11-26",
+      "flagged": [
+        "Garston - Staff area"
+      ]
+    },
     {
       "night": "2026-11-25",
       "flagged": []
@@ -792,21 +815,6 @@
     {
       "night": "2026-11-13",
       "flagged": []
-    },
-    {
-      "night": "2026-11-12",
-      "flagged": [
-        "Cheetham Hill - Staff area",
-        "Crumpsall - Customer area",
-        "Crumpsall - Staff area",
-        "Droylsden - Staff area",
-        "Great Moor - Customer area",
-        "Northgate - Customer area",
-        "Northgate - Staff area",
-        "Sale Carpets - Customer area",
-        "Sale Carpets - Staff area",
-        "Sale Moor - Customer area"
-      ]
     }
   ]
 }
